@@ -3,6 +3,7 @@ import DefaultButton from "../component/ui/DefaultButton";
 import styled from "styled-components";
 import Title from "../component/main/Title";
 import ButtonGroup from "../component/ui/ButtonGroup";
+import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
 
 const Wrapper = styled.div`
     width:100%;
@@ -14,15 +15,18 @@ const Wrapper = styled.div`
 function MainPage(props) {
 
     return (
-        <Wrapper>
-            <Title ></Title>
-            <img src={PuAng} style={{ width: 200}}>
-            </img>
-            <ButtonGroup>
-                <DefaultButton title='정보탐색' />
-                <DefaultButton title='퀴즈풀기' />
-            </ButtonGroup>
-        </Wrapper>
+        <VerticalAlignCenterWrapper>
+            <Wrapper>
+                <Title ></Title>
+                <img src={PuAng} style={{ width: 200}}>
+                </img>
+                <ButtonGroup>
+                    <DefaultButton title='정보탐색' />
+                    <DefaultButton title='퀴즈풀기' />
+                </ButtonGroup>
+            </Wrapper>
+        </VerticalAlignCenterWrapper>
+
     );
 }
 
