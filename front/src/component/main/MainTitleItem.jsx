@@ -5,7 +5,7 @@ const FirstLetter = styled.span`
     color: #143365;
 `
 
-function TitleItem(props) {
+function MainTitleItem(props) {
 
     const {content} = props;
 
@@ -17,4 +17,4 @@ function TitleItem(props) {
     )
 }
 
-export default TitleItem;
+export default MainTitleItem;

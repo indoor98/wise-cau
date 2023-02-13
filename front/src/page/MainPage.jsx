@@ -1,9 +1,10 @@
 import PuAng from '../푸앙_사랑.png'
 import DefaultButton from "../component/ui/DefaultButton";
 import styled from "styled-components";
-import Title from "../component/main/Title";
+import MainTitle from "../component/main/MainTitle";
 import ButtonGroup from "../component/ui/ButtonGroup";
 import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
+import {useNavigate} from "react-router-dom";
 
 const Wrapper = styled.div`
     width:100%;
@@ -13,15 +14,20 @@ const Wrapper = styled.div`
     align-items: center;
 `
 function MainPage(props) {
+    const navigate = useNavigate();
+
+    const rankClickHandler = () => {
+        navigate('/rank');
+    };
 
     return (
         <VerticalAlignCenterWrapper>
             <Wrapper>
-                <Title ></Title>
+                <MainTitle ></MainTitle>
                 <img src={PuAng} style={{ width: 200}}>
                 </img>
                 <ButtonGroup>
-                    <DefaultButton title='정보탐색' />
+                    <DefaultButton onClick={rankClickHandler} title='순위' />
                     <DefaultButton title='퀴즈풀기' />
                 </ButtonGroup>
             </Wrapper>
