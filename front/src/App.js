@@ -3,14 +3,14 @@ import './App.css';
 import MainPage from './page/MainPage';
 
 import styled from 'styled-components';
-import RankPage from "./page/RankPage";
+import RankingPage from "./page/RankingPage";
 
 function App() {
   return (
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<MainPage/>}/>
-          <Route path='/rank' element={<RankPage/>}/>
+          <Route path='/rank' element={<RankingPage/>}/>
         </Routes>
       </BrowserRouter>
   );
