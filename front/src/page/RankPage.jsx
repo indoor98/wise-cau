@@ -24,7 +24,7 @@ function RankPage() {
 
     return (
             <Wrapper>
-                <Title subtitle='(만점자 수)'>퀴즈 결과</Title>
+                <Title subtitle='(만점자 수)'>퀴즈 순위</Title>
                 <RankItemList />
                 <ButtonGroup>
                     <DefaultButton title='처음으로' onClick={homeClickHandler}></DefaultButton>

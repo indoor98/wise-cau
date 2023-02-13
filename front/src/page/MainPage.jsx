@@ -27,7 +27,7 @@ function MainPage(props) {
                 <img src={PuAng} style={{ width: 200}}>
                 </img>
                 <ButtonGroup>
-                    <DefaultButton onClick={rankClickHandler} title='통계' />
+                    <DefaultButton onClick={rankClickHandler} title='순위' />
                     <DefaultButton title='퀴즈풀기' />
                 </ButtonGroup>
             </Wrapper>
