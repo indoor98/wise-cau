@@ -1,0 +1,36 @@
+.ranking {
+    font-weight: bolder;
+}
+
+.ranking__1 {
+    font-size: 24px;
+}
+
+.ranking__2 {
+    font-size: 22px;
+}
+
+.ranking__3 {
+    font-size: 20px;
+}
+
+.collegeName__1 {
+    font-size: 24px;
+}
+
+.collegeName__2 {
+    font-size: 22px;
+}
+
+.collegeName__3 {
+    font-size: 20px;
+}
+
+
+
+.ranking__background {
+    background-color:grey;
+    opacity:0.25;
+    position: absolute;
+    border-radius:10px;
+}
