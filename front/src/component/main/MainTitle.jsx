@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import TitleItem from "./TitleItem"
+import MainTitleItem from "./MainTitleItem"
 
 const Wrapper = styled.div`
     width:250px;
@@ -11,15 +11,15 @@ const Wrapper = styled.div`
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `
 
-function Title(props) {
+function MainTitle(props) {
 
     return (
         <Wrapper>
-            <TitleItem content='슬기로운'/>
-            <TitleItem content='중앙대'/>
-            <TitleItem content='생활'/>
+            <MainTitleItem content='슬기로운'/>
+            <MainTitleItem content='중앙대'/>
+            <MainTitleItem content='생활'/>
         </Wrapper>
     );
 }
 
-export default Title;
+export default MainTitle;

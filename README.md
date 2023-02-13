@@ -60,3 +60,4 @@ figma에는 퀴즈 결과 화면과 통계가 동일하지만, 이런 경우 통
 
 
 ## 데이터베이스 Schema
+<img src = "https://user-images.githubusercontent.com/98157935/218380124-96a9758c-7f38-4efd-951b-96baffc305c8.png" width = "600" height="400"/>
