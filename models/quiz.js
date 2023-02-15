@@ -39,4 +39,4 @@ const Quiz = sequelize.define('quiz', {
     }
 });
 
-module.exports = Products;
+module.exports = Quiz;

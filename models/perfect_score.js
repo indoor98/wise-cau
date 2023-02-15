@@ -18,3 +18,5 @@ const Perfect = sequelize.define('perfect', {
         allowNull: false
     }
 });
+
+module.exports = Perfect;
