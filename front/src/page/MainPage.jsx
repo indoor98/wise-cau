@@ -5,34 +5,30 @@ import MainTitle from "../component/main/MainTitle";
 import ButtonGroup from "../component/ui/ButtonGroup";
 import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
 import {useNavigate} from "react-router-dom";
+import DefaultWrapper from "../component/ui/DefaultWrapper";
 
-const Wrapper = styled.div`
-    width:100%;
-    margin: 0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-`
 function MainPage(props) {
     const navigate = useNavigate();
 
     const rankClickHandler = () => {
-        navigate('/rank');
+        navigate('/ranking');
     };
+
+    const quizStartClickHandler = () => {
+        navigate('/select');
+    }
 
     return (
         <VerticalAlignCenterWrapper>
-            <Wrapper>
-                <MainTitle ></MainTitle>
-                <img src={PuAng} style={{ width: 200}}>
-                </img>
+            <DefaultWrapper>
+                <MainTitle />
+                <img src={PuAng} style={{ width: 200}} />
                 <ButtonGroup>
                     <DefaultButton onClick={rankClickHandler} title='순위' />
-                    <DefaultButton title='퀴즈풀기' />
+                    <DefaultButton onClick={quizStartClickHandler} title='퀴즈풀기' />
                 </ButtonGroup>
-            </Wrapper>
+            </DefaultWrapper>
         </VerticalAlignCenterWrapper>
-
     );
 }
 
