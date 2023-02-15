@@ -1,22 +1,21 @@
 import {keyframes} from '@emotion/react';
 import styled from "styled-components";
-
-const spin = keyframes`
-    to {
-      transform: rotate(360deg);
-    }
-`;
-
 const Container = styled.div`
   width: 49px;
 `;
 
 const LoadingSpinner = styled.div`
+  
+  @keyframes spin {
+    to {
+      transform: rotate(90deg);
+    }
+  }
   display:block;
   width:35px;
   height:35px;
   border: 7px solid red;
-  animation: ${spin} 1s linear infinite;
+  animation: spin 1s linear infinite;
 `;
 
 

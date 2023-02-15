@@ -10,42 +10,39 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Puang from '../푸앙_기본형.png'
 import Loading from "../component/ui/Loading";
+import DefaultWrapper from "../component/ui/DefaultWrapper";
 
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto 0;
-`
 function RankingPage() {
     const navigate = useNavigate();
     const [rankingData,setRankingData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/ranking').then(response => {
             setRankingData(response.data.results);
+            setIsLoading(false);
         });
-    },[])
+    }, []);
+
+    let content = null;
+    if(isLoading) {
+        content = <Loading />;
+    } else {
+        content = <RankItemList rankingData={rankingData}/>;
+    }
 
     const homeClickHandler = () => {
         navigate('/');
     };
 
     return (
-            <Wrapper>
+            <DefaultWrapper>
                 <Title subtitle='(만점자 수)'>퀴즈 순위</Title>
-                {rankingData === undefined ?
-                    <Loading />
-                :
-                    <RankItemList rankingData={rankingData} />
-                }
-                
+                {content}
                 <ButtonGroup>
                     <DefaultButton title='처음으로' onClick={homeClickHandler}></DefaultButton>
-                    <DefaultButton title='다시풀기'></DefaultButton>
                 </ButtonGroup>
-            </Wrapper>
+            </DefaultWrapper>
     );
 }
 
