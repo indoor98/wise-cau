@@ -1,18 +1,42 @@
-const db = require('../util/database');
+const Sequelize = require('sequelize');
 
-module.exports = class quiz {
-    constructor(id, title, option1, option2, option3, option4, answer, solution) {
-        this.id = id;
-        this.title = title;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
-        this.answer = answer;
-        this.solution = solution;
+const sequelize = require('../util/database');
+
+const Quiz = sequelize.define('quiz', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    title: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    option1: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    option2: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    option3: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    option4: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    answer: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    solution: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
-    // 10문제 뽑는 함수
-    static fetchTen() {
-        return db.execute('SELECT * FROM quizzes ORDER BY RAND()');
-    }
-};
+});
+
+module.exports = Quiz;
