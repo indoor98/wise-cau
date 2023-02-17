@@ -12,8 +12,12 @@ const College = sequelize.define('college', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    perfects: { //만점자 수!!
-        type: Sequelize.INTEGER,
+    score: { //점수
+        type: Sequelize.FLOAT,
+        allowNull: false
+    },
+    weight: { //가중치
+        type: Sequelize.FLOAT,
         allowNull: false
     }
 });

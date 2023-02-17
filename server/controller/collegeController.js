@@ -2,11 +2,11 @@ const College = require('../models/college');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 
-exports.incresePerfect = (req, res, next) => { 
+exports.increseScore = (req, res, next) => { 
     const collegeId = req.body.collegeId;
     College.findByPk(collegeId)
     .then(college => {
-        college.perfects = college.perfects + 1;
+        college.score = college.score + 1*college.weight;
         return res.json({message: "만점입니다."});
     })
     .catch(err => console.log(err));
@@ -14,7 +14,7 @@ exports.incresePerfect = (req, res, next) => {
 
 exports.collegeRanking = (req, res, next) => {
     College.findAll({
-        order: [['perfects', 'DESC']]
+        order: [['score', 'DESC']]
     })
     .then( colleges => {
         console.log(colleges);
