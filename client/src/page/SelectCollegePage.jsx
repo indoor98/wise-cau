@@ -56,7 +56,7 @@ function SelectCollegePage() {
             setUnselectedQuizStartError(true);
             return;
         }
-        navigate('/quizs');
+        navigate('/quiz');
     }
 
     const backClickHandler = () => {
