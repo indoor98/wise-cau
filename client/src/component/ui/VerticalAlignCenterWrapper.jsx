@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   display:flex;
   align-items: center;
   width:100vw;
-  height:100vh
+  height:100vh;
 `;
 
 function VerticalAlignCenterWrapper(props) {
