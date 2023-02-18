@@ -9,7 +9,7 @@ import RankItemList from "../component/rank/RankItemList";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Puang from '../푸앙_기본형.png'
-import Loading from "../component/ui/Loading";
+import Loader from "../component/ui/Loader";
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 
 function RankingPage() {
@@ -26,7 +26,7 @@ function RankingPage() {
 
     let content = null;
     if(isLoading) {
-        content = <Loading />;
+        content = <Loader />;
     } else {
         content = <RankItemList rankingData={rankingData}/>;
     }

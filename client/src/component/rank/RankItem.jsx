@@ -19,7 +19,7 @@ function RankItem(props) {
         <Wrapper >
             <div className={'ranking__'+ranking}>
                 <span className='ranking'>{ranking}등</span>
-                <span> {stat.numberOfPerfectScore}명</span>
+                <span> {stat.numberOfPerfectScore}p</span>
             </div>
             { ranking <= 3
                 &&

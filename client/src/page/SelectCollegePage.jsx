@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Title from "../component/ui/Title";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import Loading from "../component/ui/Loading";
+import Loader from "../component/ui/Loader";
 import ButtonGroup from "../component/ui/ButtonGroup";
 import DefaultButton from "../component/ui/DefaultButton";
 import {useNavigate} from "react-router-dom";
@@ -13,6 +13,9 @@ import DefaultWrapper from "../component/ui/DefaultWrapper";
 
 
 const MyCollege = styled.div`
+  
+  text-align:center;
+  
   @keyframes vibration {
     from {
       transform: rotate(1deg);
@@ -60,7 +63,7 @@ function SelectCollegePage() {
         navigate('/');
     }
 
-    let content = <Loading/>;
+    let content = <Loader/>;
     let selectedCollegeName = null;
 
     if (!isLoading) {
@@ -78,7 +81,8 @@ function SelectCollegePage() {
                     onSelectCollegeHandler={onSelectCollegeHandler}
                 />
                 <MyCollege className={unselectedQuizStartError && 'vibration'}>
-                    나의 단과대는 : {selectedCollegeId !== null && selectedCollegeName}
+                    나의 단과대는 :
+                    <h3 style={{marginBottom:0,height:35}}>{selectedCollegeId !== null && selectedCollegeName}</h3>
                 </MyCollege>
             </div>;
 

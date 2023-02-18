@@ -19,7 +19,7 @@ const LoadingSpinner = styled.div`
 `;
 
 
-function Loading() {
+function Loader() {
     return (
         <Container>
             <LoadingSpinner />
@@ -29,7 +29,7 @@ function Loading() {
 
 
 
-export default Loading;
+export default Loader;
 
 
 
