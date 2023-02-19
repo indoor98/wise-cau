@@ -82,7 +82,7 @@ function SelectCollegePage() {
                 />
                 <MyCollege className={unselectedQuizStartError && 'vibration'}>
                     나의 단과대는 :
-                    <h3 style={{marginBottom:0,height:35}}>{selectedCollegeId !== null && selectedCollegeName}</h3>
+                    <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeId !== null && selectedCollegeName}</h3>
                 </MyCollege>
             </div>;
 

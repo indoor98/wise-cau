@@ -9,6 +9,8 @@ const Button = styled.button`
     border-radius: 10px;
     background-color: #143365;
     font-size: 19px;
+  
+    font-family: 'MICEGothic Bold', serif;
 `
 function DefaultButton(props) {
     const {onClick, title} = props;

@@ -39,7 +39,9 @@ function CollegeItem(props) {
             id={props.id}
         >
             {props.icon}
-            {props.title}
+            <div style={{marginTop:5}}>
+                {props.title}
+            </div>
         </Box>
     );
 }
