@@ -20,7 +20,7 @@ const Button = styled.div`
 const ButtonMargin=styled.div`
   margin: auto 0;
 `;
-function QuizButton(props){
+function QuizOptionButton(props){
     const {onClick,index,text}=props;
 
     return(
@@ -32,4 +32,4 @@ function QuizButton(props){
 
 }
 
-export default QuizButton;
+export default QuizOptionButton;

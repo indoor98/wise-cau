@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Quiz_Button = styled.button`
   width: 100px;
   height: 35px;
-  margin: 15px;
+  margin: 8px;
   color: white;
   border: solid 2px #143365;
   border-radius: 10px;
