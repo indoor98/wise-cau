@@ -7,7 +7,7 @@ const Question_style=styled.span`
   flex-direction:column;
   margin-top: 50px;
   
-  font-size:18px;
+  font-size:15px;
 
 `
 
@@ -17,7 +17,7 @@ function QuizQuestion(props){
     return (
 
             <Question_style>
-                Q {num} {question}
+                Q{num}. {question}
             </Question_style>
 
 
