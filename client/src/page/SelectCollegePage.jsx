@@ -41,7 +41,7 @@ function SelectCollegePage() {
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/colleges').then(response => {
-            setColleges(response.data.results);
+            setColleges(response.data.result);
             setIsLoading(false);
         });
     }, []);

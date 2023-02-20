@@ -1,6 +1,6 @@
 {
   "ranking": {
-    "results": [
+    "result": [
       {
         "collegeName": "경영경제대학",
         "numberOfPerfectScore": 1200
@@ -52,7 +52,7 @@
     ]
   },
   "colleges": {
-    "results": [
+    "result": [
       {
         "id": 1,
         "name": "인문대학"
@@ -104,7 +104,7 @@
     ]
   },
   "quizzes": {
-    "results": [
+    "result": [
       {
         "id": 30,
         "title": "30번째 문제입니다.",

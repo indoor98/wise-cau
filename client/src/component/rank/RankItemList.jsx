@@ -5,7 +5,6 @@ const Wrapper = styled.div`
 
 `;
 function RankItemList(props) {
-
     const rankingData = props.rankingData;
 
     /** RankItem 배경의 Width를 구하는 메서드, 1등을 250으로 fix 한 후 나머지를 상대적으로 조정 */
