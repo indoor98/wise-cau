@@ -2,105 +2,228 @@
   "ranking": {
     "results": [
       {
-        "collegeName":"경영경제대학",
+        "collegeName": "경영경제대학",
         "numberOfPerfectScore": 1200
       },
       {
-        "collegeName":"소프트웨어대학",
+        "collegeName": "소프트웨어대학",
         "numberOfPerfectScore": 400
       },
       {
-        "collegeName":"사회과학대학",
+        "collegeName": "사회과학대학",
         "numberOfPerfectScore": 200
       },
       {
-        "collegeName":"자연과학대학",
+        "collegeName": "자연과학대학",
         "numberOfPerfectScore": 125
       },
       {
-        "collegeName":"인문대학",
+        "collegeName": "인문대학",
         "numberOfPerfectScore": 62
       },
       {
-        "collegeName":"공과대학",
+        "collegeName": "공과대학",
         "numberOfPerfectScore": 30
       },
       {
-        "collegeName":"간호적십자대학",
+        "collegeName": "간호적십자대학",
         "numberOfPerfectScore": 25
       },
       {
-        "collegeName":"의과대학",
+        "collegeName": "의과대학",
         "numberOfPerfectScore": 20
       },
       {
-        "collegeName":"약학대학",
+        "collegeName": "약학대학",
         "numberOfPerfectScore": 19
       },
       {
-        "collegeName":"예술대학",
+        "collegeName": "예술대학",
         "numberOfPerfectScore": 15
       },
       {
-        "collegeName":"사범대학",
+        "collegeName": "사범대학",
         "numberOfPerfectScore": 13
       },
       {
-        "collegeName":"창의ICT공과대학",
+        "collegeName": "창의ICT공과대학",
         "numberOfPerfectScore": 0
       }
     ]
   },
   "colleges": {
-    "results":
-    [
+    "results": [
       {
         "id": 1,
-        "name":"인문대학"
+        "name": "인문대학"
       },
       {
         "id": 2,
-        "name":"사회과학대학"
+        "name": "사회과학대학"
       },
       {
         "id": 3,
-        "name":"사범대학"
+        "name": "사범대학"
       },
       {
         "id": 4,
-        "name":"자연과학대학"
+        "name": "자연과학대학"
       },
       {
         "id": 5,
-        "name":"공과대학"
+        "name": "공과대학"
       },
       {
         "id": 6,
-        "name":"창의ICT공과대학"
+        "name": "창의ICT공과대학"
       },
       {
         "id": 7,
-        "name":"소프트웨어대학"
+        "name": "소프트웨어대학"
       },
       {
         "id": 8,
-        "name":"경영경제대학"
+        "name": "경영경제대학"
       },
       {
         "id": 9,
-        "name":"의과대학"
+        "name": "의과대학"
       },
       {
         "id": 10,
-        "name":"약학대학"
+        "name": "약학대학"
       },
       {
         "id": 11,
-        "name":"적십자간호대학"
+        "name": "적십자간호대학"
       },
       {
         "id": 12,
-        "name":"예술대학"
+        "name": "예술대학"
+      }
+    ]
+  },
+  "quizzes": {
+    "results": [
+      {
+        "id": 30,
+        "title": "30번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 2,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 9,
+        "title": "9번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 1,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 13,
+        "title": "13번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 1,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 4,
+        "title": "4번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 0,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 19,
+        "title": "19번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 3,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 28,
+        "title": "28번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 0,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 57,
+        "title": "57번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 1,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 37,
+        "title": "37번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 1,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 25,
+        "title": "25번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 1,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
+      },
+      {
+        "id": 58,
+        "title": "58번째 문제입니다.",
+        "option1": "op1",
+        "option2": "op2",
+        "option3": "op3",
+        "option4": "op4",
+        "answer": 2,
+        "solution": "desc",
+        "createdAt": "2023-02-17T05:40:12.000Z",
+        "updatedAt": "2023-02-17T05:40:12.000Z"
       }
     ]
   }
