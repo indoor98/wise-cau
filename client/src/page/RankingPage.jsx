@@ -9,16 +9,13 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Loader from "../component/ui/Loader";
 import DefaultWrapper from "../component/ui/DefaultWrapper";
+import PointInformation from "../component/rank/PointInformation";
 
-const PointInformation = styled.div`
-  width: 200px;
-  font-size: 12px;
-  margin-top: 20px;
-`;
+
 
 function RankingPage() {
     const navigate = useNavigate();
-    const [showPointInformation, setShowPoirtInformation] = useState(false);
+    const [showPointInformation, setShowPointInformation] = useState(false);
     const [rankingData, setRankingData] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -36,27 +33,17 @@ function RankingPage() {
     };
 
     const togglePointInformation = () => {
-        setShowPoirtInformation(prevState => !prevState);
+        setShowPointInformation(prevState => !prevState);
     }
 
     return (
         <DefaultWrapper>
             <Title>퀴즈 순위</Title>
             {content}
-            <PointInformation>
-                <div onClick={togglePointInformation}>
-                    ※포인트 집계 방식 {showPointInformation  ? '△':'▽'}
-                </div>
-                {showPointInformation &&
-                    <p>
-                        포인트 = 단과대 별 만점자 수
-                        <br/>&times; (1 / 2023 단과대 별 신입생 수)
-                        <br/>&times; 400
-                    </p>
-                }
-
-            </PointInformation>
-
+            <PointInformation
+                isOpen={showPointInformation}
+                toggle={togglePointInformation}
+            />
             <ButtonGroup>
                 <DefaultButton title='처음으로' onClick={homeClickHandler}/>
             </ButtonGroup>

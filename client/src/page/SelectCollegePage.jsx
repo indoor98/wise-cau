@@ -64,30 +64,24 @@ function SelectCollegePage() {
         navigate('/');
     }
 
-    let content = <Loader/>;
-    let selectedCollegeName = null;
+    const selectedCollegeName = selectedCollegeId === null ? null : colleges[selectedCollegeId - 1].name;
 
-    if (!isLoading) {
+    const content = isLoading ?
+        <Loader/>
+    :
+        <div>
+            <CollegeItemList
+                items={colleges}
+                selectedCollegeId={selectedCollegeId}
+                onSelectCollegeHandler={onSelectCollegeHandler}
+            />
+            <MyCollege className={unselectedQuizStartError && 'vibration'}>
+                나의 단과대는 :
+                <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeName}</h3>
+            </MyCollege>
+        </div>;
 
-        if (selectedCollegeId !== null) {
-            selectedCollegeName = colleges[selectedCollegeId - 1].name;
-        }
 
-
-        content =
-            <div>
-                <CollegeItemList
-                    items={colleges}
-                    selectedCollegeId={selectedCollegeId}
-                    onSelectCollegeHandler={onSelectCollegeHandler}
-                />
-                <MyCollege className={unselectedQuizStartError && 'vibration'}>
-                    나의 단과대는 :
-                    <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeId !== null && selectedCollegeName}</h3>
-                </MyCollege>
-            </div>;
-
-    }
 
     return (
         <VerticalAlignCenterWrapper>
