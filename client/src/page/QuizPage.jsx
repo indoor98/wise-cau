@@ -10,10 +10,9 @@ import QuizSolution from "../component/quiz/QuizSolution";
 import DefaultButton from "../component/ui/DefaultButton";
 import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
+import {useLocation} from "react-router-dom";
 
 function QuizPage() {
-
-
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/quizes').then(response => {

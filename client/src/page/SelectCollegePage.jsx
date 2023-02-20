@@ -56,7 +56,8 @@ function SelectCollegePage() {
             setUnselectedQuizStartError(true);
             return;
         }
-        navigate('/quiz');
+
+        navigate('/quiz',{state: {selectedCollegeId : selectedCollegeId}});
     }
 
     const backClickHandler = () => {
