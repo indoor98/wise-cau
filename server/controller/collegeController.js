@@ -4,28 +4,37 @@ const sequelize = require('../util/database');
 
 exports.increseScore = (req, res, next) => { 
     const collegeId = req.body.collegeId;
+    var score;
     College.findByPk(collegeId)
-    .then(college => {
-        college.score = college.score + 1*college.weight;
-        return res.json({message: "만점입니다."});
-    })
-    .catch(err => console.log(err));
+        .then(college => {
+            score = college.score + college.weight;
+            College.update({
+                score: score 
+            },{
+                where: {
+                    id: collegeId
+                }
+            });
+            return res.json({message: "만점입니다."});
+            })
+        .catch(err => console.log(err));
 };
 
 exports.collegeRanking = (req, res, next) => {
     College.findAll({
+        attributes: ['id', 'college_name', 'score'],
         order: [['score', 'DESC']]
     })
     .then( colleges => {
-        console.log(colleges);
-        return res.json({result: colleges[0], resultsList: colleges});
+        return res.json({result: colleges});
     })
     .catch(err => console.log(err));
 };
 
 exports.collegeList = (req, res, next) => {
     College.findAll({
-        order: [['college_name', 'ASC']]
+        attributes: ['id', 'college_name'],
+        order: [['id', 'ASC']]
     })
     .then(colleges => {
         console.log(colleges);

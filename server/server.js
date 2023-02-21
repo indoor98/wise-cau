@@ -8,16 +8,24 @@ const College = require('./models/college');
 
 const collegeController = require('./controller/collegeController');
 const quizController = require('./controller/quizController');
+const errorController = require('./controller/errorController');
 
 const dummy = require('./util/dummyData');
 
 const app = express();
 
+
+
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 //api
 app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
+
+app.use(errorController.get404);
+
 
 
 sequelize
