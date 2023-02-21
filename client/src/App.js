@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import RankingPage from "./page/RankingPage";
 import SelectCollegePage from "./page/SelectCollegePage";
 import QuizPage from "./page/QuizPage";
+import NotFoundPage from "./page/NotFoundPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/ranking' element={<RankingPage/>}/>
                 <Route path='/select' element={<SelectCollegePage/>}/>
                 <Route path='/quiz' element={<QuizPage />}/>
+                <Route path='/*' element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     );
