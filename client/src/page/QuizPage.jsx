@@ -3,7 +3,6 @@ import QuizImg from '../푸앙_독서.png';
 
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 import QuizQuestion from "../component/quiz/QuizQuestion";
-import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
 import axios, {VERSION} from "axios";
 import QuizOptionButton from "../component/quiz/QuizOptionButton";
 import QuizSolution from "../component/quiz/QuizSolution";

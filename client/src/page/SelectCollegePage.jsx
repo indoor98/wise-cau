@@ -10,6 +10,8 @@ import CollegeItem from "../component/select-college/CollegeItem";
 import CollegeItemList from "../component/select-college/CollegeItemList";
 import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
 import DefaultWrapper from "../component/ui/DefaultWrapper";
+import ErrorUtil from "../util/ErrorUtil";
+import Error from "../component/ui/Error";
 
 
 const MyCollege = styled.div`
@@ -38,11 +40,14 @@ function SelectCollegePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [selectedCollegeId, setSelectedCollegeId] = useState(null);
     const [unselectedQuizStartError, setUnselectedQuizStartError] = useState(false);
+    const [networkError, setNetworkError] = useState(ErrorUtil.OK);
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/colleges').then(response => {
             setColleges(response.data.result);
             setIsLoading(false);
+        }).catch(error => {
+            setNetworkError(ErrorUtil.NETWORK_ERROR);
         });
     }, []);
 
@@ -66,7 +71,7 @@ function SelectCollegePage() {
 
     const selectedCollegeName = selectedCollegeId === null ? null : colleges[selectedCollegeId - 1].name;
 
-    const content = isLoading ?
+    let content = isLoading ?
         <Loader/>
     :
         <div>
@@ -80,6 +85,8 @@ function SelectCollegePage() {
                 <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeName}</h3>
             </MyCollege>
         </div>;
+
+    content = networkError.isError ? <Error error={networkError}/> : content;
 
 
 
