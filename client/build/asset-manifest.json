@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.74f1667b.css",
+    "main.js": "/static/js/main.1862548a.js",
+    "static/js/787.3e5d771d.chunk.js": "/static/js/787.3e5d771d.chunk.js",
+    "static/media/푸앙_독서.png": "/static/media/푸앙_독서.f4edb4f91744830666de.png",
+    "static/media/푸앙_사랑.png": "/static/media/푸앙_사랑.8f97ef60c7c28ef0e6e9.png",
+    "static/media/푸앙_밤샘.png": "/static/media/푸앙_밤샘.a9f03d3885f37df833f5.png",
+    "static/media/푸앙_절규.png": "/static/media/푸앙_절규.247ba7e14b096d4b9816.png",
+    "index.html": "/index.html",
+    "main.74f1667b.css.map": "/static/css/main.74f1667b.css.map",
+    "main.1862548a.js.map": "/static/js/main.1862548a.js.map",
+    "787.3e5d771d.chunk.js.map": "/static/js/787.3e5d771d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74f1667b.css",
+    "static/js/main.1862548a.js"
+  ]
+}
