@@ -11,11 +11,13 @@ import DefaultButton from "../component/ui/DefaultButton";
 import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
 import {useLocation} from "react-router-dom";
+import QuizConverter from "../util/QuizConverter";
 
 function QuizPage() {
 
     useEffect(() => {
-        axios.get('http://localhost:4000/api/quizes').then(response => {
+        axios.get('http://localhost:4000/api/quizzes').then(response => {
+            console.log(QuizConverter.convert(response.data.result));
         });
     }, []);
 
