@@ -44,7 +44,7 @@ function QuizPage() {
             element.style.border='3px solid lightcoral';
             const answerElement=document.getElementById(dataState[pageNumState].answer);
             answerElement.style.backgroundColor='#9dff9a';
-            answerElement.style.border='3px solid grey';
+
 
         }
 
@@ -56,6 +56,12 @@ function QuizPage() {
         setPageState(false);
         setAnswerState(0);
         setPageNumState(pageNumState+1);
+        let array=['0','1','2','3'];
+        array.map(function (i){
+            document.getElementById(i).style.backgroundColor='#ffffff';
+            document.getElementById(i).style.border='3px solid #143365';
+        });
+
     }
 
     const Right_Button = styled.div`
