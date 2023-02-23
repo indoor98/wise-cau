@@ -83,19 +83,25 @@ function SelectCollegePage() {
                 나의 단과대는 :
                 <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeName}</h3>
             </MyCollege>
+            <ButtonGroup>
+                <DefaultButton title='뒤로 가기' onClick={backClickHandler} />
+                <DefaultButton title='퀴즈 시작!' onClick={quizStartClickHandler} />
+            </ButtonGroup>
         </div>;
 
-    content = networkError.isError ? <Error error={networkError}/> : content;
+    content = networkError.isError ?
+        <div style={{textAlign:'center'}}>
+            <Error error={networkError}/>
+            <DefaultButton title='처음으로' onClick={backClickHandler} />
+        </div>
+        :
+        content;
 
     return (
         <VerticalAlignCenterWrapper>
             <DefaultWrapper>
                 <Title>나의 단과대</Title>
                 {content}
-                <ButtonGroup>
-                    <DefaultButton title='뒤로 가기' onClick={backClickHandler}></DefaultButton>
-                    <DefaultButton title='퀴즈 시작!' onClick={quizStartClickHandler}></DefaultButton>
-                </ButtonGroup>
             </DefaultWrapper>
         </VerticalAlignCenterWrapper>
     );
