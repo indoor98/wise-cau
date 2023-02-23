@@ -1,40 +1,68 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import QuizImg from '../푸앙_독서.png';
-
+import WrongImg from '../푸앙_절규.png';
+import CorrectImg from '../푸앙_응원.png';
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 import QuizQuestion from "../component/quiz/QuizQuestion";
 import axios, {VERSION} from "axios";
 import QuizOptionButton from "../component/quiz/QuizOptionButton";
 import QuizSolution from "../component/quiz/QuizSolution";
-import DefaultButton from "../component/ui/DefaultButton";
 import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
-import {useLocation} from "react-router-dom";
 import QuizConverter from "../util/QuizConverter";
 
 function QuizPage() {
 
+
+
     useEffect(() => {
         axios.get('http://localhost:4000/api/quizzes').then(response => {
-            console.log(QuizConverter.convert(response.data.result));
+
+            setDataState(QuizConverter.convert(response.data.result));
+            console.log(response.data.result);
         });
     }, []);
+    const [pageState,setPageState] = useState(false);
+    const [dataState,setDataState]=useState(null);
+    const [answerState,setAnswerState]=useState(0);
+    const [pageNumState,setPageNumState]=useState(0);
+    const onOptionClick = (event) => {
+        if (pageState==true){
+            return ``
+        }
+        setPageState(true);
+        console.log(event.currentTarget.id);
+        if (event.currentTarget.id==dataState[pageNumState].answer){
+            setAnswerState(1);}
+        else{
+            setAnswerState(2);
+        }
+
+    }
+    const onNextClick = () => {
+        setPageState(false);
+        setAnswerState(0);
+        setPageNumState(pageNumState+1);
+    }
+
+
 
     return (
         <DefaultWrapper>
-                    <QuizQuestion num='01' question="(서울) 다음 중 중앙도서관 3층 아고라존에 대한 설명으로 옳지 않은 것을 고르시오."/>
-                    <img src={QuizImg} style={{width:130,paddingLeft : 180}}/>
+                    <QuizQuestion num={pageNumState+1} question={dataState===null? 'data is null':dataState[pageNumState].title}/>
+                    <img src={pageState? (answerState==1 ? CorrectImg:WrongImg) : QuizImg} style={{width:130,paddingLeft : 180}}/>
                     <div>
-                        <QuizOptionButton index='A' text="강의평가를 하지 않아도 성적 이의 신청 기간이 지나면 성적을 확인 할 수 있다."></QuizOptionButton>
-                        <QuizOptionButton index='B' text="성적을 확인 할 수 있다."></QuizOptionButton>
-                        <QuizOptionButton index='C' text="강의평가를 하지 않아도 성적 이의 신청 기간이 지나면 성적"></QuizOptionButton>
-                        <QuizOptionButton index='D' text="강의평가를 하지 않아도 성적 이의 신청 기간이 지나면 성적을 확인 할 수 있다."></QuizOptionButton>
+                        <QuizOptionButton onClick={onOptionClick} id='0' index='A' text={dataState===null? 'data is null':dataState[pageNumState].option[0]}></QuizOptionButton>
+                        <QuizOptionButton onClick={onOptionClick} id='1' index='B' text={dataState===null? 'data is null':dataState[pageNumState].option[1]}></QuizOptionButton>
+                        <QuizOptionButton onClick={onOptionClick} id='2' index='C' text={dataState===null? 'data is null':dataState[pageNumState].option[2]}></QuizOptionButton>
+                        <QuizOptionButton onClick={onOptionClick} id='3' index='D' text={dataState===null? 'data is null':dataState[pageNumState].option[3]}></QuizOptionButton>
                     </div>
-                    <QuizSolution solution="중앙 자랑이 아닌 중앙 사랑 장학금이다. 친가족이 2명 이상 본 대학교에 재학 또는 휴학하고 있는 경우 재학중인 1인에게 장학금을 지원하고 있다. 8분위 이내의 학생은 근로를 통해 장학금을 받을 수 있다."/>
+                    <QuizSolution solution={dataState===null? 'data is null':dataState[pageNumState].solution}/>
 
-            <QuizNextButton title="다음 문제"/>
+            <QuizNextButton onClick={onNextClick} title="다음 문제"/>
             <QuizPageNum num='1'/>
         </DefaultWrapper>
+
 
     );
 }
