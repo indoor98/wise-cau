@@ -17,9 +17,8 @@ function QuizPage() {
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/quizzes').then(response => {
-
-            setDataState(QuizConverter.convert(response.data.result));
             console.log(response.data.result);
+            setDataState(QuizConverter.convert(response.data.result));
         });
     }, []);
     const [pageState,setPageState] = useState(false);
@@ -27,12 +26,12 @@ function QuizPage() {
     const [answerState,setAnswerState]=useState(0);
     const [pageNumState,setPageNumState]=useState(0);
     const onOptionClick = (event) => {
-        if (pageState==true){
+        if (pageState===true){
             return ``
         }
         setPageState(true);
         console.log(event.currentTarget.id);
-        if (event.currentTarget.id==dataState[pageNumState].answer){
+        if (event.currentTarget.id===dataState[pageNumState].answer){
             setAnswerState(1);}
         else{
             setAnswerState(2);
@@ -50,7 +49,7 @@ function QuizPage() {
     return (
         <DefaultWrapper>
                     <QuizQuestion num={pageNumState+1} question={dataState===null? 'data is null':dataState[pageNumState].title}/>
-                    <img src={pageState? (answerState==1 ? CorrectImg:WrongImg) : QuizImg} style={{width:130,paddingLeft : 180}}/>
+                    <img src={pageState? (answerState===1 ? CorrectImg:WrongImg) : QuizImg} style={{width:130,paddingLeft : 180}}/>
                     <div>
                         <QuizOptionButton onClick={onOptionClick} id='0' index='A' text={dataState===null? 'data is null':dataState[pageNumState].option[0]}></QuizOptionButton>
                         <QuizOptionButton onClick={onOptionClick} id='1' index='B' text={dataState===null? 'data is null':dataState[pageNumState].option[1]}></QuizOptionButton>
@@ -60,7 +59,7 @@ function QuizPage() {
                     <QuizSolution solution={dataState===null? 'data is null':dataState[pageNumState].solution}/>
 
             <QuizNextButton onClick={onNextClick} title="다음 문제"/>
-            <QuizPageNum num='1'/>
+            <QuizPageNum num={pageNumState+1}/>
         </DefaultWrapper>
 
 

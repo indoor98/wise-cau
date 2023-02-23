@@ -6,8 +6,8 @@ const Question_style=styled.span`
   width:250px;
   flex-direction:column;
   margin-top: 50px;
-  
-  font-size:15px;
+  margin-bottom: 10px;
+  font-size:18px;
 
 `
 
