@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   margin-bottom:7px;
 `;
 function RankItem(props) {
-
     const ranking = props.ranking;
     const stat = props.stat;
 

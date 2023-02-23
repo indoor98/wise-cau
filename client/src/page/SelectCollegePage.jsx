@@ -61,7 +61,6 @@ function SelectCollegePage() {
             setUnselectedQuizStartError(true);
             return;
         }
-
         navigate('/quiz',{state: {selectedCollegeId : selectedCollegeId}});
     }
 
@@ -88,8 +87,6 @@ function SelectCollegePage() {
 
     content = networkError.isError ? <Error error={networkError}/> : content;
 
-
-
     return (
         <VerticalAlignCenterWrapper>
             <DefaultWrapper>
@@ -101,7 +98,7 @@ function SelectCollegePage() {
                 </ButtonGroup>
             </DefaultWrapper>
         </VerticalAlignCenterWrapper>
-    )
+    );
 }
 
 export default SelectCollegePage;

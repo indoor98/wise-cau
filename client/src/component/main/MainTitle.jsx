@@ -12,7 +12,6 @@ const Wrapper = styled.div`
 `
 
 function MainTitle(props) {
-
     return (
         <Wrapper>
             <MainTitleItem content='슬기로운'/>

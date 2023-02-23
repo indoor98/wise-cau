@@ -23,7 +23,6 @@ const Box = styled.li`
   
 `;
 function CollegeItem(props) {
-
     let fontSize = 10;
     if(props.title.length === 4) {
         fontSize = 12;

@@ -15,7 +15,6 @@ class QuizConverter {
                solution : quiz.solution
            }
         });
-
     }
 }
 

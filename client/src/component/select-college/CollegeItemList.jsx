@@ -38,9 +38,6 @@ const iconList = [
 ];
 
 function CollegeItemList(props) {
-
-
-
     const items = props.items;
 
     const selectClickHandler = (event) => {
@@ -62,7 +59,7 @@ function CollegeItemList(props) {
                 );
             })}
         </Wrapper>
-    )
+    );
 }
 
 export default CollegeItemList;
