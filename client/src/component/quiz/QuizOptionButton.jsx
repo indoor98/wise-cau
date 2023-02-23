@@ -21,11 +21,11 @@ const ButtonMargin=styled.div`
   margin: auto 0;
 `;
 function QuizOptionButton(props){
-    const {onClick,index,text}=props;
+    const {onClick,index,text,id}=props;
 
     return(
 
-        <Button onClick={onClick}>
+        <Button onClick={onClick} id={id}>
             <ButtonMargin>{index}. {text}</ButtonMargin>
         </Button>
     );

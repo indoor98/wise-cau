@@ -30,15 +30,20 @@ function QuizPage() {
             return ``
         }
         setPageState(true);
-        console.log(event.currentTarget.id);
-        if (event.currentTarget.id===dataState[pageNumState].answer){
-            setAnswerState(1);}
+        const choose=event.currentTarget.id;
+        console.log(event.currentTarget);
+        if (choose==dataState[pageNumState].answer){
+            setAnswerState(1);
+        }
         else{
             setAnswerState(2);
         }
 
     }
     const onNextClick = () => {
+        if(pageState===false){
+            return ``
+        }
         setPageState(false);
         setAnswerState(0);
         setPageNumState(pageNumState+1);
