@@ -6,7 +6,6 @@ const FirstLetter = styled.span`
 `
 
 function MainTitleItem(props) {
-
     const {content} = props;
 
     const firstLetter = content.substr(0,1); 

@@ -54,17 +54,13 @@ function RankingPage() {
     //로딩 여부와 상관없이, Error 가 발생했으면 에러 컴포넌트를 렌더링
     content = error.isError ? <Error error={error} /> : content;
 
-
-
     return (
         <DefaultWrapper>
             <Title>퀴즈 순위</Title>
             {content}
-
             <ButtonGroup>
                 <DefaultButton title='처음으로' onClick={homeClickHandler}/>
             </ButtonGroup>
-
         </DefaultWrapper>
     );
 }

@@ -1,11 +1,11 @@
 import {keyframes} from '@emotion/react';
 import styled from "styled-components";
+
 const Container = styled.div`
   width: 49px;
 `;
 
 const LoadingSpinner = styled.div`
-  
   @keyframes spin {
     to {
       transform: rotate(90deg);
@@ -18,16 +18,13 @@ const LoadingSpinner = styled.div`
   animation: spin 1s linear infinite;
 `;
 
-
 function Loader() {
     return (
         <Container>
             <LoadingSpinner />
         </Container>
-    )
+    );
 }
-
-
 
 export default Loader;
 
