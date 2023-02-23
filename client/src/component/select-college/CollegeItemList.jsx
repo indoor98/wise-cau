@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CollegeItem from "./CollegeItem";
 
 const Wrapper = styled.ul`
+  margin-right:0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

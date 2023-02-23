@@ -12,12 +12,13 @@ import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapp
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
+import Content from "../component/ui/Content";
 
 
 const MyCollege = styled.div`
-  
-  text-align:center;
-  
+
+  text-align: center;
+
   @keyframes vibration {
     from {
       transform: rotate(1deg);
@@ -61,7 +62,7 @@ function SelectCollegePage() {
             setUnselectedQuizStartError(true);
             return;
         }
-        navigate('/quiz',{state: {selectedCollegeId : selectedCollegeId}});
+        navigate('/quiz', {state: {selectedCollegeId: selectedCollegeId}});
     }
 
     const backClickHandler = () => {
@@ -72,8 +73,8 @@ function SelectCollegePage() {
 
     let content = isLoading ?
         <Loader/>
-    :
-        <div>
+        :
+        <>
             <CollegeItemList
                 items={colleges}
                 selectedCollegeId={selectedCollegeId}
@@ -81,21 +82,23 @@ function SelectCollegePage() {
             />
             <MyCollege className={unselectedQuizStartError && 'vibration'}>
                 나의 단과대는 :
-                <h3 style={{marginBottom:0,height:35,marginTop:10}}>{selectedCollegeName}</h3>
+                <h3 style={{marginBottom: 0, height: 35, marginTop: 10}}>{selectedCollegeName}</h3>
             </MyCollege>
             <ButtonGroup>
-                <DefaultButton title='뒤로 가기' onClick={backClickHandler} />
-                <DefaultButton title='퀴즈 시작!' onClick={quizStartClickHandler} />
+                <DefaultButton title='뒤로 가기' onClick={backClickHandler}/>
+                <DefaultButton title='퀴즈 시작!' onClick={quizStartClickHandler}/>
             </ButtonGroup>
-        </div>;
+        </>;
 
     content = networkError.isError ?
-        <div style={{textAlign:'center'}}>
+        <div style={{textAlign: 'center'}}>
             <Error error={networkError}/>
-            <DefaultButton title='처음으로' onClick={backClickHandler} />
+            <DefaultButton title='처음으로' onClick={backClickHandler}/>
         </div>
         :
         content;
+
+
 
     return (
         <VerticalAlignCenterWrapper>
