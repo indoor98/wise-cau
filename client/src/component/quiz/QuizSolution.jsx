@@ -5,7 +5,6 @@ const Solution_style=styled.span`
   width:250px;
   flex-direction:column;
   margin-top: 10px;
-  
   font-size:15px;
 
 `
@@ -13,7 +12,8 @@ const Solution_style=styled.span`
 function QuizSolution(props){
     const solutionText=props.solution;
     return(
-        <Solution_style>
+
+        <Solution_style >
             해설 : {solutionText}
         </Solution_style>
     );
