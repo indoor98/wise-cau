@@ -46,7 +46,7 @@ function QuizPage() {
             setAnswerState(2);
             chooseButton.style.border='3px solid lightcoral';
             answerElement.style.backgroundColor='#9dff9a';
-
+            answerElement.style.border='3px solid green';
 
         }
 
