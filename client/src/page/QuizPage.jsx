@@ -10,8 +10,8 @@ import QuizSolution from "../component/quiz/QuizSolution";
 import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
 import QuizConverter from "../util/QuizConverter";
-import styled from "styled-components";
 
+let score=0;
 function QuizPage() {
 
 
@@ -26,7 +26,6 @@ function QuizPage() {
     const [dataState,setDataState]=useState(null);
     const [answerState,setAnswerState]=useState(0);
     const [pageNumState,setPageNumState]=useState(0);
-    const [scoreState,setScoreState]=useState(1);
     const onOptionClick = (event) => {
         if (pageState===true){
             return ``
@@ -39,7 +38,8 @@ function QuizPage() {
         if (choose==dataState[pageNumState].answer){
             setAnswerState(1);
             chooseButton.style.backgroundColor='#b0ffa3';
-            setScoreState(scoreState+1);
+            score+=1;
+            console.log(score);
 
         }
         else{
