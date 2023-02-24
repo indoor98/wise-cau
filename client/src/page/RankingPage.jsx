@@ -23,7 +23,7 @@ function RankingPage() {
     const [error,setError] = useState(ErrorUtil.OK);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/api/ranking').then(response => {
+        axios.get('/api/ranking').then(response => {
             setRankingData(response.data.result);
             setIsLoading(false);
         }).catch(databaseError => {

@@ -44,7 +44,7 @@ function SelectCollegePage() {
     const [networkError, setNetworkError] = useState(ErrorUtil.OK);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/api/colleges').then(response => {
+        axios.get('/api/colleges').then(response => {
             setColleges(response.data.result);
             setIsLoading(false);
         }).catch(error => {

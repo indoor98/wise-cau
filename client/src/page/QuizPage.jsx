@@ -17,7 +17,7 @@ function QuizPage() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:4000/api/quizzes').then(response => {
+        axios.get('/api/quizzes').then(response => {
             console.log(response.data.result);
             setDataState(QuizConverter.convert(response.data.result));
         });
