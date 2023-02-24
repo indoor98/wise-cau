@@ -14,7 +14,7 @@ const dummy = require('./util/dummyData');
 
 const app = express();
 
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
