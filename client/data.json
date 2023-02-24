@@ -2,52 +2,52 @@
   "ranking": {
     "result": [
       {
-        "collegeName": "경영경제대학",
-        "numberOfPerfectScore": 1200
+        "college_name": "경영경제대학",
+        "score": 1200
       },
       {
-        "collegeName": "소프트웨어대학",
-        "numberOfPerfectScore": 400
+        "college_name": "소프트웨어대학",
+        "score": 400
       },
       {
-        "collegeName": "사회과학대학",
-        "numberOfPerfectScore": 200
+        "college_name": "사회과학대학",
+        "score": 200
       },
       {
-        "collegeName": "자연과학대학",
-        "numberOfPerfectScore": 125
+        "college_name": "자연과학대학",
+        "score": 125
       },
       {
-        "collegeName": "인문대학",
-        "numberOfPerfectScore": 62
+        "college_name": "인문대학",
+        "score": 62
       },
       {
-        "collegeName": "공과대학",
-        "numberOfPerfectScore": 30
+        "college_name": "공과대학",
+        "score": 30
       },
       {
-        "collegeName": "간호적십자대학",
-        "numberOfPerfectScore": 25
+        "college_name": "간호적십자대학",
+        "score": 25
       },
       {
-        "collegeName": "의과대학",
-        "numberOfPerfectScore": 20
+        "college_name": "의과대학",
+        "score": 20
       },
       {
-        "collegeName": "약학대학",
-        "numberOfPerfectScore": 19
+        "college_name": "약학대학",
+        "score": 19
       },
       {
-        "collegeName": "예술대학",
-        "numberOfPerfectScore": 15
+        "college_name": "예술대학",
+        "score": 15
       },
       {
-        "collegeName": "사범대학",
-        "numberOfPerfectScore": 13
+        "college_name": "사범대학",
+        "score": 13
       },
       {
-        "collegeName": "창의ICT공과대학",
-        "numberOfPerfectScore": 0
+        "college_name": "창의ICT공과대학",
+        "score": 0
       }
     ]
   },
@@ -55,51 +55,51 @@
     "result": [
       {
         "id": 1,
-        "name": "인문대학"
+        "college_name": "인문대학"
       },
       {
         "id": 2,
-        "name": "사회과학대학"
+        "college_name": "사회과학대학"
       },
       {
         "id": 3,
-        "name": "사범대학"
+        "college_name": "사범대학"
       },
       {
         "id": 4,
-        "name": "자연과학대학"
+        "college_name": "자연과학대학"
       },
       {
         "id": 5,
-        "name": "공과대학"
+        "college_name": "공과대학"
       },
       {
         "id": 6,
-        "name": "창의ICT공과대학"
+        "college_name": "창의ICT공과대학"
       },
       {
         "id": 7,
-        "name": "소프트웨어대학"
+        "college_name": "소프트웨어대학"
       },
       {
         "id": 8,
-        "name": "경영경제대학"
+        "college_name": "경영경제대학"
       },
       {
         "id": 9,
-        "name": "의과대학"
+        "college_name": "의과대학"
       },
       {
         "id": 10,
-        "name": "약학대학"
+        "college_name": "약학대학"
       },
       {
         "id": 11,
-        "name": "적십자간호대학"
+        "college_name": "적십자간호대학"
       },
       {
         "id": 12,
-        "name": "예술대학"
+        "college_name": "예술대학"
       }
     ]
   },

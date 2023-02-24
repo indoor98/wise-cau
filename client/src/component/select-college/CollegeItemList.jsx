@@ -51,7 +51,7 @@ function CollegeItemList(props) {
                 return (
                 <CollegeItem
                     key={college.id}
-                    title={college.name}
+                    title={college.college_name}
                     id={college.id}
                     onClick={selectClickHandler}
                     icon={iconList[college.id]}

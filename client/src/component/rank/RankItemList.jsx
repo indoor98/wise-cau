@@ -11,7 +11,7 @@ function RankItemList(props) {
     const calculateBackgroundWidth = () => {
         const backgroundWidth = [0, 250];
         for(let i=1; i<3; i++) {
-            backgroundWidth.push(250 * rankingData[i].numberOfPerfectScore / rankingData[0].numberOfPerfectScore);
+            backgroundWidth.push(250 * rankingData[i].score / rankingData[0].score);
         }
         return backgroundWidth;
     };

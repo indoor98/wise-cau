@@ -18,7 +18,7 @@ function RankItem(props) {
         <Wrapper >
             <div className={'ranking__'+ranking}>
                 <span className='ranking'>{ranking}등</span>
-                <span> {stat.numberOfPerfectScore}p</span>
+                <span> {stat.score}p</span>
             </div>
             { ranking <= 3
                 &&
@@ -28,7 +28,7 @@ function RankItem(props) {
             }
             <div className={'collegeName__'+ranking}>
                 {ranking <= 3 && <Medal ranking={ranking}/>}
-                {props.stat.collegeName}
+                {props.stat.college_name}
             </div>
         </Wrapper>
     );
