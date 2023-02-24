@@ -26,23 +26,25 @@ function QuizPage() {
     const [dataState,setDataState]=useState(null);
     const [answerState,setAnswerState]=useState(0);
     const [pageNumState,setPageNumState]=useState(0);
+    const [scoreState,setScoreState]=useState(1);
     const onOptionClick = (event) => {
         if (pageState===true){
             return ``
         }
         setPageState(true);
         const choose=event.currentTarget.id;
+        const chooseButton=document.getElementById(choose);
+        const answerElement=document.getElementById(dataState[pageNumState].answer);
 
         if (choose==dataState[pageNumState].answer){
             setAnswerState(1);
-            const element=document.getElementById(choose);
-            element.style.backgroundColor='#9dff9a';
+            chooseButton.style.backgroundColor='#b0ffa3';
+            setScoreState(scoreState+1);
+
         }
         else{
             setAnswerState(2);
-            const element=document.getElementById(choose);
-            element.style.border='3px solid lightcoral';
-            const answerElement=document.getElementById(dataState[pageNumState].answer);
+            chooseButton.style.border='3px solid lightcoral';
             answerElement.style.backgroundColor='#9dff9a';
 
 
@@ -64,31 +66,7 @@ function QuizPage() {
 
     }
 
-    const Right_Button = styled.div`
-  
-  margin-top:10px;
-  border:1px solid grey;
-  border-radius: 5px;
-  width: 250px;
-  height:68px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
-  display: flex;
-  `
-    const Wrong_Button = styled.div`
-  
-  margin-top:10px;
-  border:1px solid grey;
-      background-color: lightcoral;
-  border-radius: 5px;
-  width: 250px;
-  height:68px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
-  display: flex;
-  `
+
     return (
         <DefaultWrapper>
                     <QuizQuestion num={pageNumState+1} question={dataState===null? 'data is null':dataState[pageNumState].title}/>
