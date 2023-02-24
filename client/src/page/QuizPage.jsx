@@ -10,8 +10,8 @@ import QuizSolution from "../component/quiz/QuizSolution";
 import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
 import QuizConverter from "../util/QuizConverter";
-import styled from "styled-components";
 
+let score=0;
 function QuizPage() {
 
 
@@ -32,19 +32,21 @@ function QuizPage() {
         }
         setPageState(true);
         const choose=event.currentTarget.id;
+        const chooseButton=document.getElementById(choose);
+        const answerElement=document.getElementById(dataState[pageNumState].answer);
 
         if (choose==dataState[pageNumState].answer){
             setAnswerState(1);
-            const element=document.getElementById(choose);
-            element.style.backgroundColor='#9dff9a';
+            chooseButton.style.backgroundColor='#b0ffa3';
+            score+=1;
+            console.log(score);
+
         }
         else{
             setAnswerState(2);
-            const element=document.getElementById(choose);
-            element.style.border='3px solid lightcoral';
-            const answerElement=document.getElementById(dataState[pageNumState].answer);
+            chooseButton.style.border='3px solid lightcoral';
             answerElement.style.backgroundColor='#9dff9a';
-            answerElement.style.border='3px solid grey';
+            answerElement.style.border='3px solid green';
 
         }
 
@@ -56,33 +58,15 @@ function QuizPage() {
         setPageState(false);
         setAnswerState(0);
         setPageNumState(pageNumState+1);
+        let array=['0','1','2','3'];
+        array.map(function (i){
+            document.getElementById(i).style.backgroundColor='#ffffff';
+            document.getElementById(i).style.border='3px solid #143365';
+        });
+
     }
 
-    const Right_Button = styled.div`
-  
-  margin-top:10px;
-  border:1px solid grey;
-  border-radius: 5px;
-  width: 250px;
-  height:68px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
-  display: flex;
-  `
-    const Wrong_Button = styled.div`
-  
-  margin-top:10px;
-  border:1px solid grey;
-      background-color: lightcoral;
-  border-radius: 5px;
-  width: 250px;
-  height:68px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
-  display: flex;
-  `
+
     return (
         <DefaultWrapper>
                     <QuizQuestion num={pageNumState+1} question={dataState===null? 'data is null':dataState[pageNumState].title}/>
