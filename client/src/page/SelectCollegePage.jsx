@@ -69,7 +69,7 @@ function SelectCollegePage() {
         navigate('/');
     }
 
-    const selectedCollegeName = selectedCollegeId === null ? null : colleges[selectedCollegeId - 1].name;
+    const selectedCollegeName = selectedCollegeId === null ? null : colleges[selectedCollegeId - 1].college_name;
 
     let content = isLoading ?
         <Loader/>
