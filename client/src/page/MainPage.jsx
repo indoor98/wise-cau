@@ -6,9 +6,12 @@ import ButtonGroup from "../component/ui/ButtonGroup";
 import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
 import {useNavigate} from "react-router-dom";
 import DefaultWrapper from "../component/ui/DefaultWrapper";
+import BSLog from "../util/BSLog";
 
 function MainPage(props) {
     const navigate = useNavigate();
+
+    BSLog.info("메인화면입니다.");
 
     const rankClickHandler = () => {
         navigate('/ranking');
