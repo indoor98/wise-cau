@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const sequelize = require('./util/database');
 const path = require('path');
-const config = require('./config/config.json');
-
 const Quiz = require('./models/quiz');
 const College = require('./models/college');
 
