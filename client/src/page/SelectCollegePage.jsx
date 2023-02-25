@@ -12,6 +12,7 @@ import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapp
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
+import BSLog from "../util/BSLog";
 import Content from "../component/ui/Content";
 
 
@@ -45,6 +46,10 @@ function SelectCollegePage() {
 
     useEffect(() => {
         axios.get('/api/colleges').then(response => {
+            //BSLog.log("hi","hi");
+
+            BSLog.info('Original Data ->'+response.data.result);
+            BSLog.info('Obj Data -> '+response.data.result.map((college => JSON.stringify(college))));
             setColleges(response.data.result);
             setIsLoading(false);
         }).catch(error => {
