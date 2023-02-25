@@ -114,8 +114,8 @@ function QuizPage() {
             </div>
             {pageState&&<QuizSolution solution={dataState===null? 'data is null':dataState[pageNumState].solution}/>}
 
-            {pageNumState!=9 && pageState && <QuizNextButton onClick={onNextClick} title="다음 문제"/>}
-            {pageNumState==9 && pageState && <QuizNextButton onClick={onResultClick} title="결과 확인"/>}
+            {pageNumState != 9 && pageState && <QuizNextButton onClick={onNextClick} title="다음 문제"/>}
+            {pageNumState == 9 && pageState && <QuizNextButton onClick={onResultClick} title="결과 확인"/>}
             {pageState && <QuizPageNum num={pageNumState+1}/>}
         </>;
 
