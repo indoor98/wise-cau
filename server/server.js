@@ -2,6 +2,7 @@ const express=  require('express');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const sequelize = require('./util/database');
+const path = require('path');
 
 const Quiz = require('./models/quiz');
 const College = require('./models/college');
