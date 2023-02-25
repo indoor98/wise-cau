@@ -26,16 +26,16 @@ app.use('/', (res, req, next) => {
   console.log(res);
 })
 */
-
+app.get('/api/quizzes', quizController.getTenQuizzes);
+app.post('/api/results', collegeController.increseScore);
+app.get('/api/ranking', collegeController.collegeRanking);
+app.get('/api/colleges', collegeController.collegeList);
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "build/index.html"));
 });
 // 사용자가 아무 url을 입력하면("*") 리액트 HTML을 보내라
 
-app.get('/api/quizzes', quizController.getTenQuizzes);
-app.post('/api/results', collegeController.increseScore);
-app.get('/api/ranking', collegeController.collegeRanking);
-app.get('/api/colleges', collegeController.collegeList);
+
 
 app.use(errorController.get404);
 
