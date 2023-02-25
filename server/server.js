@@ -19,10 +19,14 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+/* 에러 발생함
 //api
 app.use('/', (res, req, next) => {
   console.log(res);
 })
+*/
+
 app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
