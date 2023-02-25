@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const sequelize = require('./util/database');
 const path = require('path');
+const config = require('./config/config.json');
 
 const Quiz = require('./models/quiz');
 const College = require('./models/college');
@@ -14,6 +15,7 @@ const errorController = require('./controller/errorController');
 const dummy = require('./util/dummyData');
 
 const app = express();
+
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 

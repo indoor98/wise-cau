@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('wise_cau', 'root', '00000000', {
+const sequelize = new Sequelize('wise_cau', 'admin', 'wisecau1', {
     dialect: 'mysql',
-    host: '127.0.0.1'
+    host: 'wisecaudb.c77bebzwxj1x.ap-northeast-2.rds.amazonaws.com'
 });
 
 
