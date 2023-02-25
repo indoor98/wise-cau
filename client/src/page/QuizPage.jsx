@@ -11,6 +11,7 @@ import QuizNextButton from "../component/quiz/QuizNextButton";
 import QuizPageNum from "../component/quiz/QuizPageNum";
 import QuizConverter from "../util/QuizConverter";
 import {useNavigate} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import Loader from "../component/ui/Loader";
 import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
@@ -19,12 +20,14 @@ import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapp
 let score=0;
 function QuizPage() {
     const navigate = useNavigate();
+    const location=useLocation();
     const [pageState,setPageState] = useState(false);
     const [dataState,setDataState]=useState(null);
     const [answerState,setAnswerState]=useState(0);
     const [pageNumState,setPageNumState]=useState(0);
     const [isLoading,setIsLoading]=useState(true);
     const [networkError, setNetworkError] = useState(ErrorUtil.OK);
+
     useEffect(() => {
         axios.get('/api/quizzes').then(response => {
             console.log(response.data.result);
@@ -60,10 +63,12 @@ function QuizPage() {
         }
 
     }
+    const {state}=location;
     const onNextClick = () => {
         if(pageState===false){
             return ``
         }
+        console.log(state)
         setPageState(false);
         setAnswerState(0);
         setPageNumState(pageNumState+1);
@@ -73,9 +78,20 @@ function QuizPage() {
             document.getElementById(i).style.border='3px solid grey';
         });
 
+
+
     }
+
+
     const onResultClick=()=>{
-        navigate('/result',{state:{}});
+
+        const json={result:score,state};
+        console.log(json);
+        if (score===10){
+            axios.post('/api/results',json);
+        }
+
+        navigate('/result',json);
 
     }
     const backClickHandler = () => {
@@ -103,13 +119,12 @@ function QuizPage() {
             {pageState && <QuizPageNum num={pageNumState+1}/>}
         </>;
 
-    quizContent=networkError.isError?
+    quizContent= state==null? navigate('/select'):quizContent;
+    quizContent = networkError.isError?
         <div style={{textAlign: 'center',margin:'180px'}}>
             <Error error={networkError}/>
             <DefaultButton title='이전으로' onClick={backClickHandler}/>
-        </div>
-        :
-        quizContent;
+        </div> : quizContent;
 
 
 
