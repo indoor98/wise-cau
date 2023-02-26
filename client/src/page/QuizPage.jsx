@@ -93,9 +93,7 @@ function QuizPage() {
     }
 
     let quizContent= isLoading?
-
         <Loader/>
-
         :
         <>
             <QuizQuestion num={pageNumState+1} question={dataState===null? 'data is null':dataState[pageNumState].title}/>
