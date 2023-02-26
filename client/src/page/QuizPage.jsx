@@ -95,8 +95,7 @@ function QuizPage() {
     const backClickHandler = () => {
         navigate('/');
     }
-
-    const currentQuiz = quizState[pageNumState];
+    const currentQuiz = !isLoading && quizState[pageNumState];
     let quizContent= isLoading?
         <Loader/>
         :

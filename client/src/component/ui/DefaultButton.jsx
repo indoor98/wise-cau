@@ -8,7 +8,7 @@ const Button = styled.button`
     border: solid 2px #143365; 
     border-radius: 10px;
     background-color: #143365;
-    font-size: 19px;
+    font-size: 17px;
   
     font-family: 'MICEGothic Bold', serif;
 `
