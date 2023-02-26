@@ -15,7 +15,7 @@ const dummy = require('./util/dummyData');
 const app = express();
 
 
-//app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,9 +30,9 @@ app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
-// app.get("*", function (req, res) {
-//     res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+ app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+ });
 // 사용자가 아무 url을 입력하면("*") 리액트 HTML을 보내라
 
 app.use(errorController.get404);
