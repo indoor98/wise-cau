@@ -89,7 +89,7 @@ function QuizPage() {
             axios.post('/api/results',json);
         }
 
-        navigate('/result',{result:score});
+        navigate('/result',{state: {result:score}});
 
     }
     const backClickHandler = () => {
