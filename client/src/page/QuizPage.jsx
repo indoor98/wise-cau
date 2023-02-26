@@ -68,7 +68,6 @@ function QuizPage() {
         if(pageState===false){
             return ``
         }
-        console.log(state)
         setPageState(false);
         setAnswerState(0);
         setPageNumState(pageNumState+1);
@@ -85,13 +84,12 @@ function QuizPage() {
 
     const onResultClick=()=>{
 
-        const json={result:score,state};
-        console.log(json);
+        const json={collegeID:state.selectedCollegeId};
         if (score===10){
             axios.post('/api/results',json);
         }
 
-        navigate('/result',json);
+        navigate('/result',{result:score});
 
     }
     const backClickHandler = () => {
