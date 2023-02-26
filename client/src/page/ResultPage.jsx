@@ -21,7 +21,7 @@ const ResultParagraph = (props) => {
     const content = props.isPerfect ?
         '축하푸앙'
         :
-        '좀 더 공부하고 오세푸앙';
+        '아쉽푸앙ㅜㅜ 다음엔 만점 받자푸앙';
 
     return (
         <p style={{fontSize:25}}>{content}</p>
