@@ -59,26 +59,22 @@ function QuizPage() {
             chooseButton.style.border='3px solid lightcoral';
             answerElement.style.backgroundColor='#b0ffa3';
             answerElement.style.border='3px solid green';
-
         }
 
     }
     const {state}=location;
     const onNextClick = () => {
-        if(pageState===false){
+        if (pageState === false) {
             return ``
         }
         setPageState(false);
         setAnswerState(0);
-        setPageNumState(pageNumState+1);
-        let array=['0','1','2','3'];
-        array.map(function (i){
-            document.getElementById(i).style.backgroundColor='#ffffff';
-            document.getElementById(i).style.border='3px solid grey';
+        setPageNumState(pageNumState + 1);
+        let array = ['0', '1', '2', '3'];
+        array.map(function (i) {
+            document.getElementById(i).style.backgroundColor = '#ffffff';
+            document.getElementById(i).style.border = '3px solid grey';
         });
-
-
-
     }
 
 

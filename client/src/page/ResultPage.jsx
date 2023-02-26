@@ -5,7 +5,7 @@ import NotPerfectScorePuangImg from '../푸앙_밤샘.png';
 import PerfectScorePuangImg from '../푸앙_의복학위복.png';
 import ButtonGroup from "../component/ui/ButtonGroup";
 import DefaultButton from "../component/ui/DefaultButton";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const ResultImg = (props) => {
 
@@ -30,7 +30,8 @@ const ResultParagraph = (props) => {
 const ResultPage = () => {
 
     const navigate = useNavigate();
-    const score = 10;
+    const location=useLocation();
+    const score=location.state.result;
     const isPerfect = score === 10;
 
     const rankingClickHandler = () => {
