@@ -1,4 +1,4 @@
-const express=  require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const sequelize = require('./util/database');
