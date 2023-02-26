@@ -21,10 +21,10 @@ const ResultParagraph = (props) => {
     const content = props.isPerfect ?
         '축하푸앙'
         :
-        '아쉽푸앙ㅜㅜ 다음엔 만점 받자푸앙';
+        "       아쉽푸앙ㅜㅜ\n다음엔 만점 받자푸앙";
 
     return (
-        <p style={{fontSize:25}}>{content}</p>
+        <p style={{fontSize:25, whiteSpace: "pre-wrap"}}>{content}</p>
     );
 }
 const ResultPage = () => {
