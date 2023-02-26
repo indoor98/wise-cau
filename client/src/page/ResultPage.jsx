@@ -24,7 +24,7 @@ const ResultParagraph = (props) => {
         "       아쉽푸앙ㅜㅜ\n다음엔 만점 받자푸앙";
 
     return (
-        <p style={{fontSize:25, whiteSpace: "pre-wrap"}}>{content}</p>
+        <p style={{fontSize:25, whiteSpace: "pre-wrap", marginBottom:0}}>{content}</p>
     );
 }
 const ResultPage = () => {
