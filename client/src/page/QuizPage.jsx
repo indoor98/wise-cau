@@ -80,7 +80,7 @@ function QuizPage() {
 
     const onResultClick=()=>{
 
-        const json={collegeID:state.selectedCollegeId};
+        const json={collegeId:state.selectedCollegeId};
         if (score===10){
             axios.post('/api/results',json);
         }
