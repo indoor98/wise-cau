@@ -17,7 +17,7 @@ import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
 import DefaultButton from "../component/ui/DefaultButton";
 import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapper";
-let score=0;
+
 function QuizPage() {
     const navigate = useNavigate();
     const location=useLocation();
@@ -27,7 +27,7 @@ function QuizPage() {
     const [pageNumState,setPageNumState]=useState(0);
     const [isLoading,setIsLoading]=useState(true);
     const [networkError, setNetworkError] = useState(ErrorUtil.OK);
-
+    const [scoreState,setScoreState]=useState(0);
     useEffect(() => {
         axios.get('/api/quizzes').then(response => {
             console.log(response.data.result);
@@ -51,7 +51,7 @@ function QuizPage() {
             setAnswerState(1);
             chooseButton.style.backgroundColor='#b0ffa3';
             chooseButton.style.border='3px solid green';
-            score+=1;
+            setScoreState(scoreState+1);
 
         }
         else{
@@ -81,11 +81,11 @@ function QuizPage() {
     const onResultClick=()=>{
 
         const json={collegeId:state.selectedCollegeId};
-        if (score===10){
+        if (scoreState===10){
             axios.post('/api/results',json);
         }
 
-        navigate('/result',{state: {result:score}});
+        navigate('/result',{state: {result:scoreState}});
 
     }
     const backClickHandler = () => {
