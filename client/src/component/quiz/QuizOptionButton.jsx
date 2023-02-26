@@ -12,10 +12,6 @@ const Button = styled.div`
   padding-right: 10px;
   text-align: left;
   display: flex;
-  
-
-
-  
 `
 const ButtonMargin=styled.div`
   margin: auto 0;

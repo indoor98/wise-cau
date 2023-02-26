@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Title from "../component/ui/Title";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Loader from "../component/ui/Loader";
 import ButtonGroup from "../component/ui/ButtonGroup";
@@ -14,6 +14,7 @@ import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
 import BSLog from "../util/BSLog";
 import Content from "../component/ui/Content";
+import ErrorUI from "../component/ui/ErrorUI";
 
 
 const MyCollege = styled.div`
@@ -96,10 +97,7 @@ function SelectCollegePage() {
         </>;
 
     content = networkError.isError ?
-        <div style={{textAlign: 'center'}}>
-            <Error error={networkError}/>
-            <DefaultButton title='처음으로' onClick={backClickHandler}/>
-        </div>
+        <ErrorUI error={networkError} clickHandler={backClickHandler}/>
         :
         content;
 

@@ -17,6 +17,8 @@ import ErrorUtil from "../util/ErrorUtil";
 import Error from "../component/ui/Error";
 import DefaultButton from "../component/ui/DefaultButton";
 import quizOptionButton from "../component/quiz/QuizOptionButton";
+import ErrorUI from "../component/ui/ErrorUI";
+import QuizOptionButtonList from "../component/quiz/QuizOptionButtonList";
 
 const SelectState = {
     UNSELECTED: 0,
@@ -55,7 +57,6 @@ function QuizPage() {
         if (choose==quizState[pageNumState].answer){
             setAnswerState(SelectState.CORRECT);
             setScoreState(scoreState+1);
-
         }
         else{
             setAnswerState(SelectState.WRONG);
@@ -72,8 +73,8 @@ function QuizPage() {
         setPageState(false);
         setAnswerState(SelectState.UNSELECTED);
         setPageNumState(pageNumState + 1);
-        let array = ['0', '1', '2', '3'];
 
+        let array = ['0', '1', '2', '3'];
         array.map(function (i) {
             document.getElementById(i).style.backgroundColor = '#ffffff';
             document.getElementById(i).style.border = '3px solid grey';
@@ -94,34 +95,28 @@ function QuizPage() {
     const backClickHandler = () => {
         navigate('/');
     }
-    const indexArray=['A','B','C','D'];
+
+    const currentQuiz = quizState[pageNumState];
     let quizContent= isLoading?
         <Loader/>
         :
         <>
-            <QuizQuestion num={pageNumState+1} question={quizState[pageNumState].title}/>
+            <QuizQuestion num={pageNumState+1} question={currentQuiz.title}/>
             <img src={pageState? (answerState===SelectState.CORRECT ? CorrectImg:WrongImg) : QuizImg} style={{width:130,paddingLeft : 180}}/>
-            <div>
-                {
-                    quizState[pageNumState].option.map((op,index)=>{
-                        return <QuizOptionButton onClick={onOptionClick} id={index} index={indexArray[index]} text={op}></QuizOptionButton>
-                        })
-                }
-               </div>
-            {pageState&&<QuizSolution solution={quizState[pageNumState].solution}/>}
-
-            {pageState && <QuizNextButton onNextButtonClick={onNextClick} onResultButtonClick={onResultClick} pageNum={pageNumState}/>}
-            {pageState && <QuizPageNum num={pageNumState+1}/>}
+            <QuizOptionButtonList options={currentQuiz.option} onOptionClick={onOptionClick}/>
+            {pageState &&
+                <>
+                <QuizSolution solution={currentQuiz.solution}/>
+                <QuizNextButton onNextButtonClick={onNextClick} onResultButtonClick={onResultClick} pageNum={pageNumState}/>
+                <QuizPageNum num={pageNumState+1}/>
+                </>
+            }
         </>;
 
-    quizContent= state==null? navigate('/select'):quizContent;
+    quizContent = state==null ? navigate('/select'):quizContent;
     quizContent = networkError.isError?
-        <div style={{textAlign: 'center',margin:'180px'}}>
-            <Error error={networkError}/>
-            <DefaultButton title='이전으로' onClick={backClickHandler}/>
-        </div> : quizContent;
-
-
+        <ErrorUI error={networkError} clickHandler={backClickHandler}/>
+         : quizContent;
 
     return (
         <DefaultWrapper>
