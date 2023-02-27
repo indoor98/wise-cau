@@ -51,12 +51,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-// 퀴즈 데이터 생성코드(삭제 예정)
-const csvPath = path.join(__dirname, 'quizzes.csv');
-const csv = fs.readFileSync(csvPath, 'utf-8');
-quizzesJSON = csvToJSON(csv);
-
-
 
 /* 에러 발생함
 //api
@@ -78,9 +72,6 @@ app.use(errorController.get404);
 sequelize
   .sync()
   .then(result => {
-    // 테스트용 더미데이터 생성코드 한번만 실행해주시면 될 것 같습니다.
-    // dummy.collegeDummy();
-    // dummy.quizDummy(quizzesJSON); <-- 퀴즈 파일 생성 코드!!
     return result;
   })
   .then(result => {
