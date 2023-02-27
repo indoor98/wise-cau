@@ -5,10 +5,7 @@ const sequelize = require('../util/database');
 exports.increseScore = (req, res, next) => {
 
 
-    if(!req.session.status) {
-        return res.json({isSuccess:false, message:'유효하지 않은 요청입니다.'});
-    }
-    req.session.status = false;
+
 
     const collegeId = req.body.collegeId;
     let score;
@@ -44,7 +41,6 @@ exports.collegeList = (req, res, next) => {
         order: [['id', 'ASC']]
     })
     .then(colleges => {
-        console.log(colleges);
         return res.json({result: colleges});
     })
     .catch(err => console.log(err));

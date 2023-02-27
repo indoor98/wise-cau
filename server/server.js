@@ -9,7 +9,7 @@ const College = require('./models/college');
 const collegeController = require('./controller/collegeController');
 const quizController = require('./controller/quizController');
 const errorController = require('./controller/errorController');
-
+const BSLogger = require('./BSLogger')
 const dummy = require('./util/dummyData');
 
 const app = express();
@@ -34,14 +34,22 @@ secret:"asdfasffdas",
     store: sessionStore
 }));
 
-
-
-
-
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(function (req, res, next) {
+    console.log('sessionStatus:' + req.session.status);
+    if((!req.session.status ) && req.path === '/api/results') {
+        return res.json({isSuccess:false, message:'유효하지 않은 요청입니다.'});
+    }
+
+   BSLogger.log(req);
+    next();
+});
+
+
 
 /* 에러 발생함
 //api
@@ -54,7 +62,6 @@ app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
  app.get("*", function (req, res) {
-     console.log('[SYSTEM]'+req.path+Date.now().toLocaleString());
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
  });
 // 사용자가 아무 url을 입력하면("*") 리액트 HTML을 보내라
