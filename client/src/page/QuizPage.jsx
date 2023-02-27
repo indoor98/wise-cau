@@ -55,6 +55,8 @@ function QuizPage() {
         const answerElement=document.getElementById(quizState[pageNumState].answer);
 
         if (choose==quizState[pageNumState].answer){
+            console.log(quizState[pageNumState].id);
+            axios.post('/api/statistic/quiz/correct',{quizId:quizState[pageNumState].id});
             setAnswerState(SelectState.CORRECT);
             setScoreState(scoreState+1);
         }
@@ -118,6 +120,12 @@ function QuizPage() {
     quizContent = networkError.isError?
         <ErrorUI error={networkError} clickHandler={backClickHandler}/>
          : quizContent;
+
+    if(!isLoading && pageState === false) {
+        console.log(quizState[pageNumState]);
+        axios.post('/api/statistic/quiz/exposure',{quizId:quizState[pageNumState].id});
+    }
+
 
     return (
         <DefaultWrapper>

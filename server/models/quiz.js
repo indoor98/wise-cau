@@ -34,7 +34,14 @@ const Quiz = sequelize.define('quiz', {
     },
     solution: {
         type: Sequelize.TEXT
+    },
+    exposure: {
+        type: Sequelize.INTEGER
+    },
+    correct: {
+        type: Sequelize.INTEGER
     }
+
 });
 
 module.exports = Quiz;

@@ -4,6 +4,7 @@ class QuizConverter {
     static convert = (quizzes) => {
         return quizzes.map(quiz => {
            return {
+               id: quiz.id,
                title: quiz.title,
                option: [
                    quiz.option1,

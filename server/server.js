@@ -80,6 +80,15 @@ app.get('/api/statistic/access', function (req, res, next) {
    return res.json({result:accessTime});
 });
 
+app.post('/api/statistic/quiz/exposure' , function (req,res,next) {
+    StatisticService.addExposureToQuiz(req.body.quizId);
+    return res.json({message:"정상적으로 수행됐습니다."});
+});
+
+app.post('/api/statistic/quiz/correct' , function (req,res,next) {
+    StatisticService.addCorrectToQuiz(req.body.quizId);
+    return res.json({message:"정상적으로 수행됐습니다."});
+})
 
 app.get('/api/statistic/request' , function(req,res,next) {
     StatisticService.getRequestStatistic(req,res,next);

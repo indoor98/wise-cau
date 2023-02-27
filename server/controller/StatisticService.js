@@ -3,6 +3,7 @@ const RequestStatistic = require('../models/RequestStatistic');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 const ApiStatistic = require ('../models/ApiStatistic');
+const Quiz = require('../models/quiz');
 
 exports.addPathCount = (path) => {
 
@@ -65,3 +66,37 @@ exports.getApiStatistic = (req,res,next) => {
         return res.json(null);
     });
 }
+
+exports.addExposureToQuiz = (quizId) => {
+
+    let exposure;
+    Quiz.findByPk(quizId)
+        .then(quiz => {
+            exposure = quiz.exposure + 1;
+
+            Quiz.update( {
+                exposure: exposure
+            },{
+                where: {
+                    id: quizId
+                }
+            });
+        });
+};
+
+exports.addCorrectToQuiz = (quizId) => {
+
+    let correct;
+
+    Quiz.findByPk(quizId)
+        .then(quiz => {
+            correct = quiz.correct + 1;
+            Quiz.update( {
+                correct: correct
+            },{
+                where: {
+                    id: quizId
+                }
+            });
+        });
+};
