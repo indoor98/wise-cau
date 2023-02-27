@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 const ApiStatistic = require ('../models/ApiStatistic');
 const Quiz = require('../models/quiz');
+const College = require("../models/college");
 
 exports.addPathCount = (path) => {
 
@@ -63,8 +64,30 @@ exports.getApiStatistic = (req,res,next) => {
         .then(result => {
             return res.json({result:result});
         }).catch(err =>  {
-        return res.json(null);
+        return res.json({result:null,message:'요청에 실패했습니다.'});
     });
+}
+
+exports.getQuizStatistic = (req,res,next) => {
+/*
+    College.findAll({
+        attributes: ['id', 'college_name'],
+        order: [['id', 'ASC']]
+    })
+        .then(colleges => {
+            return res.json({result: colleges});
+        })
+        .catch(err => console.log(err));
+*/
+    Quiz.findAll( {
+        attributes: ['id','title','exposure','correct']
+    })
+        .then(quizzes => {
+            return res.json({result: quizzes});
+        }).catch(error => {
+            return res.json({result:null,message:'요청에 실패했습니다.'})
+        }
+    );
 }
 
 exports.addExposureToQuiz = (quizId) => {
@@ -81,7 +104,11 @@ exports.addExposureToQuiz = (quizId) => {
                     id: quizId
                 }
             });
-        });
+        })
+        .catch(error => {
+                return null;
+        }
+        );
 };
 
 exports.addCorrectToQuiz = (quizId) => {
@@ -98,5 +125,8 @@ exports.addCorrectToQuiz = (quizId) => {
                     id: quizId
                 }
             });
+        })
+        .catch(error => {
+            return null;
         });
 };

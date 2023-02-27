@@ -95,6 +95,8 @@ app.get('/api/statistic/request' , function(req,res,next) {
 }) ;
 
 app.get('/api/statistic/api', StatisticService.getApiStatistic);
+
+app.get('/api/statistic/quizzes', StatisticService.getQuizStatistic);
 app.post("/api/statistic/request", function (req,res,next) {
     const isSuccess = StatisticService.addPathCount(req.body.path);
     return res.json({message:isSuccess ? "요청에 성공하였습니다." : "요청에 실패했습니다."});

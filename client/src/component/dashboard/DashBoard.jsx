@@ -3,7 +3,7 @@ import DefaultWrapper from "../ui/DefaultWrapper";
 import Navigation from "./Navigation";
 import {useState} from "react";
 import RequestStatistic from "./RequestStatistic";
-import QuestionStatistic from "./QuestionStatistic";
+import QuestionStatistic from "./quiz/QuestionStatistic";
 import AccessTimeStatistic from "./AccessTimeStatistic";
 
 const Wrapper = styled.div`
