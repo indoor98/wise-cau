@@ -7,6 +7,7 @@ const Quiz = require('./models/quiz');
 const College = require('./models/college');
 const fs = require('fs');
 const csvToJSON = require('./util/csvToJSON');
+const tsvToJSON = require('./util/tsvToJSON');
 
 const collegeController = require('./controller/collegeController');
 const quizController = require('./controller/quizController');
@@ -69,9 +70,19 @@ app.get('/api/colleges', collegeController.collegeList);
 
 app.use(errorController.get404);
 
+const csvPath = path.join(__dirname, "/quizzes.csv");
+const csv = fs.readFileSync(csvPath, 'utf-8');
+const csvJSON = csvToJSON(csv);
+
+const tsvPath = path.join(__dirname, "/quizzes.tsv");
+const tsv = fs.readFileSync(tsvPath, 'utf-8');
+const tsvJSON = tsvToJSON(tsv);
+console.log(tsvJSON);
+
 sequelize
   .sync()
   .then(result => {
+    dummy.quizDummy(tsvJSON);
     return result;
   })
   .then(result => {

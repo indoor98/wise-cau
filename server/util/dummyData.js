@@ -9,7 +9,7 @@ exports.quizDummy = (quizzesJSON) => {
             option2: quizzesJSON[i].option2,
             option3: quizzesJSON[i].option3,
             option4: quizzesJSON[i].option4,
-            answer: quizzesJSON[i].answer,
+            answer: quizzesJSON[i].answer-1,
             solution: quizzesJSON[i].solution
         });
     };
