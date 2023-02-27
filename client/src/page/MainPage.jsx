@@ -7,6 +7,7 @@ import VerticalAlignCenterWrapper from "../component/ui/VerticalAlignCenterWrapp
 import {useNavigate} from "react-router-dom";
 import DefaultWrapper from "../component/ui/DefaultWrapper";
 import BSLog from "../util/BSLog";
+import axios from "axios";
 
 function MainPage(props) {
     const navigate = useNavigate();
