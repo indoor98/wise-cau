@@ -6,6 +6,7 @@ import PerfectScorePuangImg from '../푸앙_의복학위복.png';
 import ButtonGroup from "../component/ui/ButtonGroup";
 import DefaultButton from "../component/ui/DefaultButton";
 import {useLocation, useNavigate} from "react-router-dom";
+import BSLog from "../util/BSLog";
 
 const ResultImg = (props) => {
 
@@ -31,7 +32,15 @@ const ResultPage = () => {
 
     const navigate = useNavigate();
     const location=useLocation();
-    const score=location.state.result;
+    const state=location.state;
+    let score;
+    BSLog.info(state);
+    if(state === null) {
+        score = 0;
+    } else {
+        score = state.result;
+    }
+
     const isPerfect = score === 10;
 
     const rankingClickHandler = () => {

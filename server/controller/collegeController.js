@@ -2,10 +2,16 @@ const College = require('../models/college');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 
-exports.increseScore = (req, res, next) => { 
+exports.increseScore = (req, res, next) => {
+
+    if(!req.session.status) {
+        return res.json({isSuccess:false, message:'유효하지 않은 요청입니다.'});
+    }
+
+    req.session.status = false;
+
     const collegeId = req.body.collegeId;
-    console.log('input college Id : ' + collegeId);
-    var score;
+    let score;
     College.findByPk(collegeId)
         .then(college => {
             score = college.score + college.weight;

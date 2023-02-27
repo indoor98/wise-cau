@@ -14,6 +14,29 @@ const dummy = require('./util/dummyData');
 
 const app = express();
 
+/** Session */
+
+let session = require('express-session');
+let MySQLStore = require('express-mysql-session')(session);
+let options ={
+host: 'wisecaudb.c77bebzwxj1x.ap-northeast-2.rds.amazonaws.com',
+    port: 3306,
+    user: 'admin',
+    password: 'wisecau1',
+    database: 'wise_cau'
+};
+let sessionStore = new MySQLStore(options);
+
+app.use(session({
+secret:"asdfasffdas",
+    resave:false,
+    saveUninitialized:true,
+    store: sessionStore
+}));
+
+
+
+
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
