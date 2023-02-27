@@ -41,12 +41,21 @@ app.use(session({
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+const pageUri = ['/','/select','/ranking','/result','/quiz'];
+
 app.use(function (req, res, next) {
     if ((!req.session.status) && req.path === '/api/results') {
         return res.json({isSuccess: false, message: '유효하지 않은 요청입니다.'});
     }
 
     BSLogger.log(req);
+
+    for(let i in pageUri) {
+        if(req.path === pageUri[i]) {
+            StatisticService.addPathCount(req.path);
+        }
+    }
+
     next();
 });
 
@@ -62,7 +71,14 @@ app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
-app.post("/api/statistic/request", StatisticService.addPathCount);
+
+app.get('/api/statistic/request' , function(req,res,next) {
+    StatisticService.getRequestStatistic(req,res,next);
+}) ;
+app.post("/api/statistic/request", function (req,res,next) {
+    const isSuccess = StatisticService.addPathCount(req.body.path);
+    return res.json({message:isSuccess ? "요청에 성공하였습니다." : "요청에 실패했습니다."});
+});
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.get("*", function (req, res) {

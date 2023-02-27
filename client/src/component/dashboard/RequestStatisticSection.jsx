@@ -17,12 +17,16 @@ const Title = styled.div`
   margin-bottom:10px;
 `
 const RequestStatisticSection = (props) => {
+
+    console.log(props.items);
     return (
         <Wrapper>
             <Title>
                 {props.title}
             </Title>
-            <RequestStatisticItemList/>
+            <RequestStatisticItemList
+                items = {props.items}
+            />
         </Wrapper>
     );
 }

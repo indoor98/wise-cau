@@ -2,7 +2,7 @@
 
 class BSLogger {
 
-    static IGNORE_PATH_LIST=['/static','/manifest','/favicon','/logo'];
+    static IGNORE_PATH_LIST=['/static','/manifest','/favicon','/logo','/api/statistic'];
     static log(req) {
 
 

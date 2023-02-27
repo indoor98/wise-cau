@@ -3,10 +3,10 @@ const RequestStatistic = require('../models/RequestStatistic');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 
-exports.addPathCount = (req, res, next) => {
+exports.addPathCount = (path) => {
 
     let count;
-    const findStatistic = RequestStatistic.findOne({where: {pathName: req.body.path}})
+    const findStatistic = RequestStatistic.findOne({where: {pathName: path}})
         .then(result => {
             count = result.count + 1;
 
@@ -14,10 +14,22 @@ exports.addPathCount = (req, res, next) => {
                 count:count
             }, {
                 where: {
-                    pathName: req.body.path
+                    pathName: path
                 }
             });
 
-            return res.json({message:"정상적으로 처리되었습니다."});
-        }).catch(err => console.log(err));
+            return true;
+        }).catch(err =>  {
+            return false;
+        });
+};
+
+exports.getRequestStatistic = (req,res,next) => {
+
+    RequestStatistic.findAll()
+        .then(result => {
+            return res.json({result:result});
+        }).catch(err =>  {
+            return res.json(null);
+        });
 };

@@ -11,10 +11,16 @@ const RequestStatisticItemList = (props) => {
 
     return (
         <Wrapper>
-            <RequestStatisticItem/>
-            <RequestStatisticItem/>
-            <RequestStatisticItem/>
-            <RequestStatisticItem/>
+            {props.items.map(item=> {
+              return (
+                  <RequestStatisticItem
+                    path = {item.pathName}
+                    count = {item.count}
+                    key = {item.id}
+                  />
+              )
+            })
+            }
         </Wrapper>
     );
 }
