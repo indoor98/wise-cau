@@ -54,6 +54,7 @@ app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
  app.get("*", function (req, res) {
+     console.log('[SYSTEM]'+req.path+Date.now().toLocaleString());
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
  });
 // 사용자가 아무 url을 입력하면("*") 리액트 HTML을 보내라
