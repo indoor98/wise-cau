@@ -41,6 +41,7 @@ app.use(session({
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+let accessTime = 0;
 const pageUri = ['/','/select','/ranking','/result','/quiz'];
 
 app.use(function (req, res, next) {
@@ -53,11 +54,15 @@ app.use(function (req, res, next) {
     for(let i in pageUri) {
         if(req.path === pageUri[i]) {
             StatisticService.addPathCount(req.path);
+            accessTime++;
         }
     }
 
     next();
 });
+
+
+
 
 
 
@@ -71,6 +76,9 @@ app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
+app.get('/api/statistic/access', function (req, res, next) {
+   return res.json({result:accessTime});
+});
 
 
 app.get('/api/statistic/request' , function(req,res,next) {

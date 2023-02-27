@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 `
 
 const navigationItems = [
+    '접속 횟수',
     '주소 요청 현황',
     '문제 통계'
 ]

@@ -21,8 +21,6 @@ const Wrapper = styled.div`
 const RequestStatistic = (props) => {
 
     const [isLoading,setIsLoading] = useState(true);
-    const [isRequestLoading, setIsRequestLoading] = useState(true);
-    const [isApiLoading, setIsApiLoading] = useState(true);
     const [requestStatistic, setRequestStatistic] = useState(null);
     const [apiStatistic, setApiStatistic] = useState(null);
     const [error, setError] = useState(ErrorUtil.OK);
@@ -30,45 +28,17 @@ const RequestStatistic = (props) => {
     useEffect(() => {
         axios.get('/api/statistic/request').then(response => {
             setRequestStatistic(response.data.result);
-            console.log('requestLoading is false');
 
-        }).catch(databaseError => {
-            setError(ErrorUtil.NETWORK_ERROR);
-        }).then(
             axios.get('/api/statistic/api').then(response => {
                 setApiStatistic(response.data.result);
 
-                console.log('apiLoading is false');
                 setIsLoading(false);
-
-            }).catch(databaseError => {
-                setError(ErrorUtil.NETWORK_ERROR);
             })
 
-        ).catch(databaseError => {
-            setError(ErrorUtil.NETWORK_ERROR);
-        });
-    }, []);
-
-    useEffect(() => {
-        axios.get('/api/statistic/api').then(response => {
-            setApiStatistic(response.data.result);
-            setIsApiLoading(false);
-            console.log('apiLoading is false');
-
-            if(isRequestLoading === false) {
-                console.log('isLoading is false');
-                setIsLoading(false);
-            }
         }).catch(databaseError => {
             setError(ErrorUtil.NETWORK_ERROR);
-        });
-
+        })
     }, []);
-
-
-
-
 
 
     let content = isLoading ? <Loader/>

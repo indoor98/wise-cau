@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import {useState} from "react";
 import RequestStatistic from "./RequestStatistic";
 import QuestionStatistic from "./QuestionStatistic";
+import AccessTimeStatistic from "./AccessTimeStatistic";
 
 const Wrapper = styled.div`
   width:1200px;
@@ -22,8 +23,9 @@ const DashBoard = () => {
                 <Navigation
                     setCurrentNavigation = {setCurrentNavigation}
                 />
-                {currentNavigation == 0 && <RequestStatistic/>}
-                {currentNavigation == 1 && <QuestionStatistic/>}
+                {currentNavigation == 0 && <AccessTimeStatistic />}
+                {currentNavigation == 1 && <RequestStatistic/>}
+                {currentNavigation == 2 && <QuestionStatistic />}
 
             </DefaultWrapper>
         </Wrapper>
