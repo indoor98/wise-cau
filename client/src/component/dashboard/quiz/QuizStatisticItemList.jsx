@@ -2,11 +2,11 @@ import styled from "styled-components";
 import QuizStatisticItem from "./QuizStatisticItem";
 
 const Wrapper = styled.div`
-  background-color: lightgray;
+  background-color: #eee;
   display: flex;
   flex-direction: column;
   width: 1100px;
-  height: 580px;
+  height: 600px;
   flex-wrap: wrap;
   overflow: scroll;
 `;

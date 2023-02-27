@@ -3,9 +3,10 @@ import RequestStatisticItem from "./RequestStatisticItem";
 
 const Wrapper = styled.div`
   width: 450px;
-  height: 475px;
+  height: 485px;
   background-color: white;
   margin-left:25px;
+  border-radius:10px;
 `
 const RequestStatisticItemList = (props) => {
 

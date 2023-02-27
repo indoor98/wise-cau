@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import DefaultWrapper from "../ui/DefaultWrapper";
-import Navigation from "./Navigation";
+import Navigation from "./navigate/Navigation";
 import {useState} from "react";
 import RequestStatistic from "./RequestStatistic";
 import QuestionStatistic from "./quiz/QuestionStatistic";
@@ -9,7 +9,7 @@ import AccessTimeStatistic from "./AccessTimeStatistic";
 const Wrapper = styled.div`
   width:1200px;
   height:800px;
-  background-color:lightgrey;
+  background-color:lightgray;
   border-radius:15px;
 `
 const DashBoard = () => {

@@ -4,10 +4,9 @@ import NavigationItem from "./NavigationItem";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width:1160px;
+  width:1150px;
   height:50px;
   background-color:white;
-  margin-top:20px;
   border-radius:15px;
 `
 

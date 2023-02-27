@@ -15,7 +15,7 @@ const QuizStatisticItem = (props) => {
         <Wrapper>
             문제 ID: {id}
             <br/>문제: {filteredTitle}
-            <br/> 정답/노출 : {correct}/{exposure} ({exposure !== 0 ? correct/exposure*100 : NaN}%)
+            <br/> 정답/노출 : {correct}/{exposure} <span style={{color:'firebrick'}}>({exposure !== 0 ? correct/exposure*100 : NaN}%)</span>
         </Wrapper>
     );
 };

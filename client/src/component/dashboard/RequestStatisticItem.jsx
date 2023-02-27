@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
     padding:10px;
+    font-size:15px;
 `;
 const RequestStatisticItem = (props) => {
 
@@ -30,8 +31,8 @@ const RequestStatisticItem = (props) => {
 
     return (
         <Wrapper>
-            요청 주소 : {props.path}
-            <br/>요청 횟수 : {props.count}
+            요청 주소 : <b><span style={{color:'cornflowerblue',fontSize:19}}>{props.path}</span></b>
+            <br/>요청 횟수 : <b><span style={{color:'indianred',fontSize:19}}>{props.count}</span></b>
             <br/>
             분 당 요청 횟수: {Math.round(props.count / calcMinutes)}
         </Wrapper>

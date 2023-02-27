@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import DefaultWrapper from "../ui/DefaultWrapper";
-import VerticalAlignCenterWrapper from "../ui/VerticalAlignCenterWrapper";
+import DefaultWrapper from "../../ui/DefaultWrapper";
+import VerticalAlignCenterWrapper from "../../ui/VerticalAlignCenterWrapper";
 
 const Wrapper = styled.div`
   width: 100px;
   height: 35px;
-  background-color: olivedrab;
+  background-color: lightgray;
   border-radius: 10px;
   margin: 7.5px 10px;
-  color: white;
+  color: black;
   font-size: 15px;
 `
 
