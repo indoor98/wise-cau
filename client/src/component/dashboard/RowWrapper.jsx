@@ -2,13 +2,9 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display:flex;
-  align-items: center;
-  width:100%;
-  height:100%;
-`;
-
-function VerticalAlignCenterWrapper(props) {
-
+  flex-direction: row;
+`
+const RowWrapper = (props) => {
     return (
         <Wrapper>
             {props.children}
@@ -16,4 +12,4 @@ function VerticalAlignCenterWrapper(props) {
     );
 }
 
-export default VerticalAlignCenterWrapper;
+export default RowWrapper;

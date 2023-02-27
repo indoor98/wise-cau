@@ -8,6 +8,7 @@ import SelectCollegePage from "./page/SelectCollegePage";
 import QuizPage from "./page/QuizPage";
 import NotFoundPage from "./page/NotFoundPage";
 import ResultPage from "./page/ResultPage";
+import DashBoardPage from "./page/DashBoardPage";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path='/select' element={<SelectCollegePage/>}/>
                 <Route path='/quiz' element={<QuizPage />}/>
                 <Route path='/result' element={<ResultPage />}/>
+                <Route path='/dev/dashboard' element={<DashBoardPage/>} />
                 <Route path='/*' element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>

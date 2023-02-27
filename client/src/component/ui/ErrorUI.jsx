@@ -9,7 +9,7 @@ function ErrorUI (props){
     const {error,clickHandler}=props;
 
     return(
-        <div style={{textAlign: 'center',margin:'180px'}}>
+        <div style={{textAlign: 'center'}}>
             <Error error={error}/>
             <DefaultButton title='이전으로' onClick={clickHandler}/>
         </div>);
