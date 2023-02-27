@@ -89,10 +89,12 @@ function QuizPage() {
             axios.post('/api/results',json);
         }
 
+        axios.post("/api/statistic/request",{path:'/result'});
         navigate('/result',{state: {result:scoreState}});
 
     }
     const backClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/'});
         navigate('/');
     }
     const currentQuiz = !isLoading && quizState[pageNumState];

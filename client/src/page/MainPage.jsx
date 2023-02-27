@@ -11,13 +11,17 @@ import BSLog from "../util/BSLog";
 function MainPage(props) {
     const navigate = useNavigate();
 
+
+
     BSLog.info("메인화면입니다.");
 
     const rankClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/ranking'});
         navigate('/ranking');
     };
 
     const quizStartClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/select'});
         navigate('/select');
     }
 

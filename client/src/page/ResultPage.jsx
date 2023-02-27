@@ -7,6 +7,7 @@ import ButtonGroup from "../component/ui/ButtonGroup";
 import DefaultButton from "../component/ui/DefaultButton";
 import {useLocation, useNavigate} from "react-router-dom";
 import BSLog from "../util/BSLog";
+import axios from "axios";
 
 const ResultImg = (props) => {
 
@@ -44,10 +45,12 @@ const ResultPage = () => {
     const isPerfect = score === 10;
 
     const rankingClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/ranking'});
         navigate("/ranking");
     }
 
     const homeClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/'});
         navigate("/");
     }
 

@@ -32,6 +32,7 @@ function RankingPage() {
     }, []);
 
     const homeClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/'});
         navigate('/');
     };
 

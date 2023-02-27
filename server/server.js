@@ -7,6 +7,7 @@ const Quiz = require('./models/quiz');
 const College = require('./models/college');
 const fs = require('fs');
 const csvToJSON = require('./util/csvToJSON');
+const StatisticService = require('./controller/StatisticService');
 
 const collegeController = require('./controller/collegeController');
 const quizController = require('./controller/quizController');
@@ -20,36 +21,35 @@ const app = express();
 
 let session = require('express-session');
 let MySQLStore = require('express-mysql-session')(session);
-let options ={
-host: 'wisecaudb.c77bebzwxj1x.ap-northeast-2.rds.amazonaws.com',
-    port: 3306,
-    user: 'admin',
+let options = {
+    host    : 'wisecaudb.c77bebzwxj1x.ap-northeast-2.rds.amazonaws.com',
+    port    : 3306,
+    user    : 'admin',
     password: 'wisecau1',
     database: 'wise_cau'
 };
 let sessionStore = new MySQLStore(options);
 
 app.use(session({
-secret:"asdfasffdas",
-    resave:false,
-    saveUninitialized:true,
-    store: sessionStore
+    secret           : "asdfasffdas",
+    resave           : false,
+    saveUninitialized: true,
+    store            : sessionStore
 }));
 
-app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(function (req, res, next) {
-    console.log('sessionStatus:' + req.session.status);
-    if((!req.session.status ) && req.path === '/api/results') {
-        return res.json({isSuccess:false, message:'유효하지 않은 요청입니다.'});
+    if ((!req.session.status) && req.path === '/api/results') {
+        return res.json({isSuccess: false, message: '유효하지 않은 요청입니다.'});
     }
 
-   BSLogger.log(req);
+    BSLogger.log(req);
     next();
 });
+
 
 
 /* 에러 발생함
@@ -62,19 +62,25 @@ app.get('/api/quizzes', quizController.getTenQuizzes);
 app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
- app.get("*", function (req, res) {
+app.post("/api/statistic/request", StatisticService.addPathCount);
+
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
- });
+});
 // 사용자가 아무 url을 입력하면("*") 리액트 HTML을 보내라
 
 app.use(errorController.get404);
 
+
 sequelize
-  .sync()
-  .then(result => {
-    return result;
-  })
-  .then(result => {
-    app.listen(8000, ()=>{console.log("Server started on port 8000")});
-  });
+    .sync()
+    .then(result => {
+        return result;
+    })
+    .then(result => {
+        app.listen(8000, () => {
+            console.log("Server started on port 8000")
+        });
+    });
   

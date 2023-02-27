@@ -4,12 +4,15 @@ import Puang from '../푸앙_절규.png';
 import ButtonGroup from "../component/ui/ButtonGroup";
 import DefaultButton from "../component/ui/DefaultButton";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function NotFoundPage() {
 
     const navigate = useNavigate();
+    axios.post("/api/statistic/request",{path:'/etc'});
 
     const homeClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/'});
         navigate('/');
     }
 

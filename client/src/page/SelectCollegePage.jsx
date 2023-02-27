@@ -68,10 +68,12 @@ function SelectCollegePage() {
             setUnselectedQuizStartError(true);
             return;
         }
+        axios.post("/api/statistic/request",{path:'/quiz'});
         navigate('/quiz', {state: {selectedCollegeId: selectedCollegeId}});
     }
 
     const backClickHandler = () => {
+        axios.post("/api/statistic/request",{path:'/'});
         navigate('/');
     }
 

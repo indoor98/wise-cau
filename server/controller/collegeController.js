@@ -4,9 +4,6 @@ const sequelize = require('../util/database');
 
 exports.increseScore = (req, res, next) => {
 
-
-
-
     const collegeId = req.body.collegeId;
     let score;
     College.findByPk(collegeId)
