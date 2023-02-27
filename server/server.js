@@ -72,9 +72,12 @@ app.post('/api/results', collegeController.increseScore);
 app.get('/api/ranking', collegeController.collegeRanking);
 app.get('/api/colleges', collegeController.collegeList);
 
+
 app.get('/api/statistic/request' , function(req,res,next) {
     StatisticService.getRequestStatistic(req,res,next);
 }) ;
+
+app.get('/api/statistic/api', StatisticService.getApiStatistic);
 app.post("/api/statistic/request", function (req,res,next) {
     const isSuccess = StatisticService.addPathCount(req.body.path);
     return res.json({message:isSuccess ? "요청에 성공하였습니다." : "요청에 실패했습니다."});

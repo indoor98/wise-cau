@@ -1,8 +1,11 @@
 const College = require('../models/college');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
+const StatisticService = require("./StatisticService");
 
 exports.increseScore = (req, res, next) => {
+
+    StatisticService.addApiPathCount("/api/results");
 
     const collegeId = req.body.collegeId;
     let score;
@@ -22,6 +25,9 @@ exports.increseScore = (req, res, next) => {
 };
 
 exports.collegeRanking = (req, res, next) => {
+
+    StatisticService.addApiPathCount("/api/ranking");
+
     College.findAll({
         attributes: ['id', 'college_name', 'score'],
         order: [['score', 'DESC']]
@@ -33,6 +39,9 @@ exports.collegeRanking = (req, res, next) => {
 };
 
 exports.collegeList = (req, res, next) => {
+
+    StatisticService.addApiPathCount("/api/colleges");
+
     College.findAll({
         attributes: ['id', 'college_name'],
         order: [['id', 'ASC']]

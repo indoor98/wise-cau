@@ -21,29 +21,66 @@ const Wrapper = styled.div`
 const RequestStatistic = (props) => {
 
     const [isLoading,setIsLoading] = useState(true);
+    const [isRequestLoading, setIsRequestLoading] = useState(true);
+    const [isApiLoading, setIsApiLoading] = useState(true);
     const [requestStatistic, setRequestStatistic] = useState(null);
+    const [apiStatistic, setApiStatistic] = useState(null);
     const [error, setError] = useState(ErrorUtil.OK);
 
     useEffect(() => {
         axios.get('/api/statistic/request').then(response => {
             setRequestStatistic(response.data.result);
-            console.log(requestStatistic);
-            setIsLoading(false);
+            console.log('requestLoading is false');
+
         }).catch(databaseError => {
+            setError(ErrorUtil.NETWORK_ERROR);
+        }).then(
+            axios.get('/api/statistic/api').then(response => {
+                setApiStatistic(response.data.result);
+
+                console.log('apiLoading is false');
+                setIsLoading(false);
+
+            }).catch(databaseError => {
+                setError(ErrorUtil.NETWORK_ERROR);
+            })
+
+        ).catch(databaseError => {
             setError(ErrorUtil.NETWORK_ERROR);
         });
     }, []);
+
+    useEffect(() => {
+        axios.get('/api/statistic/api').then(response => {
+            setApiStatistic(response.data.result);
+            setIsApiLoading(false);
+            console.log('apiLoading is false');
+
+            if(isRequestLoading === false) {
+                console.log('isLoading is false');
+                setIsLoading(false);
+            }
+        }).catch(databaseError => {
+            setError(ErrorUtil.NETWORK_ERROR);
+        });
+
+    }, []);
+
+
+
+
+
 
     let content = isLoading ? <Loader/>
         :
         <>
             <RequestStatisticSection
-                title='주소 요청 현황'
+                title='웹 화면 노출 현황'
                 items={requestStatistic}
             />
             <RequestStatisticSection
                 title='API 요청 현황'
-                items={requestStatistic}
+                items={apiStatistic}
             />
         </>;
 
@@ -54,7 +91,7 @@ const RequestStatistic = (props) => {
         <Wrapper>
             <DefaultWrapper>
                 <DashBoardTitle
-                    title='주소 노출 현황'
+                    title='요청 현황'
                 />
                 <RowWrapper>
                     {content}
