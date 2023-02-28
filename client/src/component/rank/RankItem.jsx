@@ -20,12 +20,6 @@ function RankItem(props) {
                 <span className='ranking'>{ranking}등</span>
                 <span> {stat.score}p</span>
             </div>
-            { ranking <= 3
-                &&
-                <div className='ranking__background'
-                    style={backgroundStyle}
-                />
-            }
             <div className={'collegeName__'+ranking}>
                 {ranking <= 3 && <Medal ranking={ranking}/>}
                 {props.stat.college_name}
