@@ -18,8 +18,8 @@ const RequestStatisticItem = (props) => {
     let stdYear = 2023;
     let stdMonth = 1;
     let stdDay = 28;
-    let stdHours = 14;
-    let stdMinutes = 0;
+    let stdHours = 12;
+    let stdMinutes = 15;
 
     let nowDate = new Date(year, month, day, hours, minutes);
     let stdDate = new Date(stdYear,stdMonth,stdDay,stdHours,stdMinutes);

@@ -28,13 +28,10 @@ const RequestStatistic = (props) => {
     useEffect(() => {
         axios.get('/api/statistic/request').then(response => {
             setRequestStatistic(response.data.result);
-
             axios.get('/api/statistic/api').then(response => {
                 setApiStatistic(response.data.result);
-
                 setIsLoading(false);
             })
-
         }).catch(databaseError => {
             setError(ErrorUtil.NETWORK_ERROR);
         })
