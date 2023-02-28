@@ -19,6 +19,7 @@ import DefaultButton from "../component/ui/DefaultButton";
 import quizOptionButton from "../component/quiz/QuizOptionButton";
 import ErrorUI from "../component/ui/ErrorUI";
 import QuizOptionButtonList from "../component/quiz/QuizOptionButtonList";
+import BSLog from "../util/BSLog";
 
 const SelectState = {
     UNSELECTED: 0,
@@ -37,7 +38,7 @@ function QuizPage() {
     const [scoreState,setScoreState]=useState(0);
     useEffect(() => {
         axios.get('/api/quizzes').then(response => {
-            console.log(response.data.result);
+            BSLog.info(response.data.result);
             setQuizState(QuizConverter.convert(response.data.result));
             setIsLoading(false);
         }).catch(error=>{
@@ -55,7 +56,7 @@ function QuizPage() {
         const answerElement=document.getElementById(quizState[pageNumState].answer);
 
         if (choose==quizState[pageNumState].answer){
-            console.log(quizState[pageNumState].id);
+            BSLog.info(quizState[pageNumState].id);
             axios.post('/api/statistic/quiz/correct',{quizId:quizState[pageNumState].id});
             setAnswerState(SelectState.CORRECT);
             setScoreState(scoreState+1);
@@ -122,7 +123,7 @@ function QuizPage() {
          : quizContent;
 
     if(!isLoading && pageState === false) {
-        console.log(quizState[pageNumState]);
+        BSLog.info(quizState[pageNumState]);
         axios.post('/api/statistic/quiz/exposure',{quizId:quizState[pageNumState].id});
     }
 
