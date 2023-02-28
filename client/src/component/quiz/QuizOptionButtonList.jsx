@@ -8,7 +8,7 @@ function QuizOptionButtonList(props){
         <div>
             {
                 options.map((op,index)=>{
-                    return <QuizOptionButton onClick={onOptionClick} id={index} index={indexArray[index]} text={op}></QuizOptionButton>
+                    return <QuizOptionButton key={index} onClick={onOptionClick} id={index} index={indexArray[index]} text={op}></QuizOptionButton>
                 })
             }
         </div>

@@ -3,7 +3,7 @@ const Environment = {
     PROD: 1
 };
 
-const STATE = Environment.DEV;
+const STATE = Environment.PROD;
 
 class BSLog {
     static trace = (message) => {
