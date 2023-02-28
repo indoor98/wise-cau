@@ -17,18 +17,22 @@ const Title = styled.div`
   margin-bottom:10px;
 `
 const RequestStatisticSection = (props) => {
+    const items = props.items;
+    let sum = 0;
+    items.forEach(item => {
+        sum += item.count;
+    });
 
-    console.log(props.items);
     return (
         <Wrapper>
             <Title>
-                {props.title}
+                {props.title} <span style={{fontSize:18,color:"forestgreen"}}>(총 {sum}회)</span>
             </Title>
             <RequestStatisticItemList
-                items = {props.items}
+                items={props.items}
             />
         </Wrapper>
     );
-}
+};
 
 export default RequestStatisticSection;
