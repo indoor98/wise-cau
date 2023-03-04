@@ -1,6 +1,7 @@
 # wise-cau
 ## 제작자 및 역할
 Back-End: 서범석, 장명훈
+
 Front-End: 서범석, 임수현
 
 ## introduction
@@ -59,8 +60,3 @@ figma에는 퀴즈 결과 화면과 통계가 동일하지만, 이런 경우 통
 통계 버튼 클릭시 위와같이 생긴 화면을 사용자에게 보여준다.
 
 ## Directory Structure
-
-
-
-## 데이터베이스 Schema
-<img src = "https://user-images.githubusercontent.com/98157935/218380124-96a9758c-7f38-4efd-951b-96baffc305c8.png" width = "600" height="400"/>
